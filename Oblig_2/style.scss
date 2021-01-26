@@ -1,0 +1,92 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  height: 10vh;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ul {
+    display: flex;
+  }
+  li {
+    padding: 10px;
+    list-style: none;
+  }
+}
+
+.myTodos {
+  margin-top: 3em;
+}
+
+main {
+  margin: 20px auto;
+  width: 80%;
+}
+
+form {
+  label {
+    font-size: 1rem;
+  }
+  input {
+    margin: 20px 0;
+    width: 50%;
+  }
+  textarea {
+    margin: 20px 0;
+    width: 100%;
+  }
+  button {
+    float: right;
+    padding: 5px 2rem;
+    color: white;
+    background-color: rgb(84, 231, 175);
+    border: none;
+    border-radius: 5%;
+  }
+}
+
+.cardSection {
+  margin: 4rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .card {
+    margin-top: 2rem;
+    box-shadow: 2px 4px 2px 0 rgba(84, 231, 175, 0.2);
+    h2,
+    p {
+      margin: 1rem;
+      max-width: 15rem;
+    }
+    button {
+      float: right;
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: rgb(84, 231, 175);
+      color: white;
+      padding: 5px 1.5rem;
+      border: none;
+      border-radius: 5%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  main {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .cardSection {
+    flex-direction: column;
+    column-count: 1;
+  }
+}

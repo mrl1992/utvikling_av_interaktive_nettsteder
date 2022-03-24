@@ -1,0 +1,195 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+  var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _react = require("react");
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _styledComponents = _interopRequireDefault(require("styled-components"));
+  var _formService = require("../utils/formService");
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  var Background = _styledComponents["default"].div.withConfig({
+    displayName: "Modal__Background",
+    componentId: "lw8pxm-0"
+  })(["display:flex;width:100%;height:100vh;justify-content:space-around;align-items:center;background-color:rgba(0,0,0,0.753);position:fixed;top:0;left:0;cursor:pointer;z-index:9;"]);
+  _c = Background;
+  var ModalWrapper = _styledComponents["default"].div.withConfig({
+    displayName: "Modal__ModalWrapper",
+    componentId: "lw8pxm-1"
+  })(["text-align:left;background-color:rgb(255,255,255);color:black;max-width:700px;max-height:calc(100vh - 210px);overflow-y:auto;padding:40px;z-index:9;"]);
+  _c2 = ModalWrapper;
+  var StyledForm = _styledComponents["default"].form.withConfig({
+    displayName: "Modal__StyledForm",
+    componentId: "lw8pxm-2"
+  })(["display:flex;flex-flow:column;align-items:center;margin:0 auto;label{font-size:1rem;display:block;}input{margin:10px 0;width:50%;display:block;}button{margin:20px 0;padding:5px 2rem;color:white;background-color:rgb(84,231,175);border:none;border-radius:5%;}h1{margin:20px auto;}p{margin:20px auto;}"]);
+  _c3 = StyledForm;
+  var Modal = function Modal(_ref) {
+    _s();
+    var modal = _ref.modal, setModal = _ref.setModal, freeCourse = _ref.freeCourse, courseTitle = _ref.courseTitle, price = _ref.price;
+    var modalRef = (0, _react.useRef)();
+    var _useState = (0, _react.useState)(""), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), email = _useState2[0], setEmail = _useState2[1];
+    var _useState3 = (0, _react.useState)(""), _useState4 = (0, _slicedToArray2["default"])(_useState3, 2), name = _useState4[0], setName = _useState4[1];
+    var _useState5 = (0, _react.useState)(""), _useState6 = (0, _slicedToArray2["default"])(_useState5, 2), phone = _useState6[0], setPhone = _useState6[1];
+    var _useState7 = (0, _react.useState)(true), _useState8 = (0, _slicedToArray2["default"])(_useState7, 2), loading = _useState8[0], setLoading = _useState8[1];
+    var _useState9 = (0, _react.useState)(false), _useState10 = (0, _slicedToArray2["default"])(_useState9, 2), error = _useState10[0], setError = _useState10[1];
+    var _useState11 = (0, _react.useState)(false), _useState12 = (0, _slicedToArray2["default"])(_useState11, 2), success = _useState12[0], setSuccess = _useState12[1];
+    var onSubmit = /*#__PURE__*/(function () {
+      var _ref2 = (0, _asyncToGenerator2["default"])(/*#__PURE__*/_regenerator["default"].mark(function _callee(sanityData) {
+        return _regenerator["default"].wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                setLoading(false);
+                setError(false);
+                setSuccess(false);
+                _context.prev = 3;
+                _context.next = 6;
+                return (0, _formService.createRegistration)(sanityData);
+              case 6:
+                setSuccess(true);
+                _context.next = 12;
+                break;
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](3);
+                setError(_context.t0.message);
+              case 12:
+                _context.prev = 12;
+                setLoading(false);
+                return _context.finish(12);
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[3, 9, 12, 15]]);
+      }));
+      return function onSubmit(_x) {
+        return _ref2.apply(this, arguments);
+      };
+    })();
+    var handleSubmit = function handleSubmit(e) {
+      e.preventDefault();
+      onSubmit({
+        email: email,
+        name: name,
+        phone: phone,
+        courseTitle: courseTitle
+      });
+    };
+    var closeModal = function closeModal(e) {
+      if (modalRef.current === e.target) {
+        setModal(false);
+      }
+    };
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+        children: modal && freeCourse ? /*#__PURE__*/(0, _jsxRuntime.jsx)(Background, {
+          ref: modalRef,
+          onClick: closeModal,
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(ModalWrapper, {
+            setModal: setModal,
+            children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledForm, {
+              onSubmit: handleSubmit,
+              children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("h1", {
+                children: ["Meld deg på ", courseTitle, " her"]
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+                children: "Dette kurset er gratis"
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
+                children: "E-post"
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+                value: email,
+                onChange: function onChange(e) {
+                  return setEmail(e.currentTarget.value);
+                },
+                type: "text",
+                required: true
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+                type: "submit",
+                children: loading ? "Send" : "Sendt"
+              }), error ? /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+                children: "noe gikk galt"
+              }) : null, success ? /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+                children: "Takk for din hendvendelse"
+              }) : null]
+            })
+          })
+        }) : modal && !freeCourse ? /*#__PURE__*/(0, _jsxRuntime.jsx)(Background, {
+          ref: modalRef,
+          onClick: closeModal,
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(ModalWrapper, {
+            children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledForm, {
+              onSubmit: handleSubmit,
+              children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("h1", {
+                children: ["Meld deg på ", courseTitle, " her"]
+              }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
+                children: ["Dette kurset koster ", price, ",-"]
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
+                children: "E-post: "
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+                value: email,
+                onChange: function onChange(e) {
+                  return setEmail(e.currentTarget.value);
+                },
+                type: "text",
+                required: true
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
+                children: "Navn: "
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+                value: name,
+                onChange: function onChange(e) {
+                  return setName(e.currentTarget.value);
+                },
+                type: "text",
+                required: true
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
+                children: "Telefon: "
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+                value: phone,
+                onChange: function onChange(e) {
+                  return setPhone(e.currentTarget.value);
+                },
+                type: "text",
+                required: true
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+                type: "submit",
+                children: loading ? "Send" : "Sender..."
+              })]
+            })
+          })
+        }) : null
+      })
+    );
+  };
+  _s(Modal, "T7qoI97c0igYo86SmqQK1FeJARM=");
+  _c4 = Modal;
+  Modal.propTypes = {
+    // modal, setModal, freeCourse, courseTitle, price
+    modal: _propTypes["default"].bool,
+    setModal: _propTypes["default"].func,
+    freeCourse: _propTypes["default"].bool,
+    courseTitle: _propTypes["default"].string,
+    price: _propTypes["default"].number
+  };
+  var _default = Modal;
+  exports["default"] = _default;
+  var _c, _c2, _c3, _c4;
+  $RefreshReg$(_c, "Background");
+  $RefreshReg$(_c2, "ModalWrapper");
+  $RefreshReg$(_c3, "StyledForm");
+  $RefreshReg$(_c4, "Modal");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

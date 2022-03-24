@@ -1,0 +1,84 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _reactRouterDom = require("react-router-dom");
+var _Author = _interopRequireDefault(require("./Author"));
+var _Category = _interopRequireDefault(require("./Category"));
+var _Published = _interopRequireDefault(require("./Published"));
+var _Styles = require("../styles/Styles");
+var _jsxRuntime = require("react/jsx-runtime");
+var StyledImage = _styledComponents["default"].img.withConfig({
+  displayName: "Article__StyledImage",
+  componentId: "sc-1afijm8-0"
+})(["object-fit:cover;"]);
+_c = StyledImage;
+var Content = _styledComponents["default"].section.withConfig({
+  displayName: "Article__Content",
+  componentId: "sc-1afijm8-1"
+})(["display:grid;grid-template-rows:repeat(6 auto);padding:5px 5px 20px 5px;"]);
+_c2 = Content;
+var Title = _styledComponents["default"].h2.withConfig({
+  displayName: "Article__Title",
+  componentId: "sc-1afijm8-2"
+})(["overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-bottom:0px;"]);
+_c3 = Title;
+var Article = function Article(_ref) {
+  var _img$image, _img$image$asset;
+  var _key = _ref._key, img = _ref.img, title = _ref.title, categories = _ref.categories, authors = _ref.authors, clickbait = _ref.clickbait, _createdAt = _ref._createdAt, viewtype = _ref.viewtype, slug = _ref.slug, featured = _ref.featured;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("section", {
+        className: ("").concat(!featured ? '' : 'featured', " article").concat(viewtype),
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+          to: ("artikler/").concat(slug),
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledImage, {
+            src: ("").concat(img === null || img === void 0 ? void 0 : (_img$image = img.image) === null || _img$image === void 0 ? void 0 : (_img$image$asset = _img$image.asset) === null || _img$image$asset === void 0 ? void 0 : _img$image$asset.url, "?h=746&w=600&fm=webp"),
+            alt: img === null || img === void 0 ? void 0 : img.alt
+          })
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(Content, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Title, {
+            children: title
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.Clickbait, {
+            children: clickbait
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Published["default"], {
+            _createdAt: _createdAt
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Category["default"], {
+            categories: categories
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Author["default"], {
+            authors: authors
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+            to: ("artikler/").concat(slug),
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.Button, {
+              children: "Les mer.."
+            })
+          })]
+        })]
+      }, _key)
+    })
+  );
+};
+_c4 = Article;
+Article.propTypes = {
+  _key: _propTypes["default"].string,
+  img: _propTypes["default"].object,
+  title: _propTypes["default"].string,
+  clickbait: _propTypes["default"].string,
+  categories: _propTypes["default"].array,
+  authors: _propTypes["default"].array,
+  _createdAt: _propTypes["default"].string,
+  viewtype: _propTypes["default"].string,
+  slug: _propTypes["default"].string,
+  featured: _propTypes["default"].bool
+};
+var _default = Article;
+exports["default"] = _default;
+var _c, _c2, _c3, _c4;
+$RefreshReg$(_c, "StyledImage");
+$RefreshReg$(_c2, "Content");
+$RefreshReg$(_c3, "Title");
+$RefreshReg$(_c4, "Article");

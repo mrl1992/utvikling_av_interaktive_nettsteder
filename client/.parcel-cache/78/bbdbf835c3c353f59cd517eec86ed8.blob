@@ -1,0 +1,40 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _reactRouterDom = require("react-router-dom");
+var _Title = _interopRequireDefault(require("./Title"));
+var _jsxRuntime = require("react/jsx-runtime");
+var CategoryItem = function CategoryItem(_ref) {
+  var _data$articles;
+  var data = _ref.data;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("section", {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Title["default"], {
+          title: data === null || data === void 0 ? void 0 : data.category
+        }), data === null || data === void 0 ? void 0 : (_data$articles = data.articles) === null || _data$articles === void 0 ? void 0 : _data$articles.map(function (article) {
+          return (
+            /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                to: ("/artikler/").concat(article.replace(/ /g, '-').toLowerCase()),
+                children: article
+              })
+            }, Math.random())
+          );
+        })]
+      })
+    })
+  );
+};
+_c = CategoryItem;
+CategoryItem.propTypes = {
+  data: _propTypes["default"].object
+};
+var _default = CategoryItem;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "CategoryItem");

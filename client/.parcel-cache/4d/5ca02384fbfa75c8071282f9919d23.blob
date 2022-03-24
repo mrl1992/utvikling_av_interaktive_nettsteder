@@ -1,0 +1,26 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _jsxRuntime = require("react/jsx-runtime");
+var Articlescontainer = function Articlescontainer(_ref) {
+  var children = _ref.children, viewtype = _ref.viewtype;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)("section", {
+      className: viewtype,
+      children: children
+    })
+  );
+};
+_c = Articlescontainer;
+Articlescontainer.propTypes = {
+  children: _propTypes["default"].node.isRequired,
+  viewtype: _propTypes["default"].string.isRequired
+};
+var _default = Articlescontainer;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "Articlescontainer");

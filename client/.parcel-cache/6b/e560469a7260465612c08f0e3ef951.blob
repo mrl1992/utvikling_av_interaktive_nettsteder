@@ -1,0 +1,80 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _react = require("react");
+  var _fetchPage = require("../hooks/fetchPage");
+  var _Styles = require("../styles/Styles");
+  var _Articles = _interopRequireDefault(require("./Articles"));
+  var _Lead = _interopRequireDefault(require("./Lead"));
+  var _Loader = _interopRequireDefault(require("./Loader"));
+  var _Error = _interopRequireDefault(require("./Error"));
+  var _Title = _interopRequireDefault(require("./Title"));
+  var _About = _interopRequireDefault(require("./About"));
+  var _Galleri = _interopRequireDefault(require("./Galleri"));
+  var _Categories = _interopRequireDefault(require("./Categories"));
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  var Page = function Page(_ref) {
+    _s();
+    var source = _ref.source, fields = _ref.fields, url = _ref.url, maxreturn = _ref.maxreturn, customtitle = _ref.customtitle, customlead = _ref.customlead;
+    var _useState = (0, _react.useState)('desc'), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), sortorder = _useState2[0], setSortorder = _useState2[1];
+    var _usePage = (0, _fetchPage.usePage)(source, fields, url, maxreturn, sortorder), status = _usePage.status, data = _usePage.data;
+    if (status === 'loading') return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_Loader["default"], {})
+    );
+    if (status === 'error') return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_Error["default"], {})
+    );
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_Styles.Container, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Title["default"], {
+            title: customtitle || (data === null || data === void 0 ? void 0 : data.title)
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Lead["default"], {
+            lead: customlead || (data === null || data === void 0 ? void 0 : data.lead)
+          }), source === 'articlepage' && (data === null || data === void 0 ? void 0 : data.length) > 0 && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Articles["default"], {
+            data: data,
+            sortorder: sortorder,
+            setSortorder: setSortorder
+          }), source === 'person' && (data === null || data === void 0 ? void 0 : data.length) > 0 && /*#__PURE__*/(0, _jsxRuntime.jsx)(_About["default"], {
+            data: data
+          }), source === 'gallery' && (data === null || data === void 0 ? void 0 : data.length) > 0 && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Galleri["default"], {
+            data: data
+          }), source === 'category' && (data === null || data === void 0 ? void 0 : data.length) > 0 && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Categories["default"], {
+            data: data
+          })]
+        })
+      })
+    );
+  };
+  _s(Page, "3E4gL1yWeKF4IT2g2yi61zz3KJY=", false, function () {
+    return [_fetchPage.usePage];
+  });
+  _c = Page;
+  Page.propTypes = {
+    source: _propTypes["default"].string,
+    fields: _propTypes["default"].string,
+    url: _propTypes["default"].string,
+    maxreturn: _propTypes["default"].string,
+    customtitle: _propTypes["default"].string,
+    customlead: _propTypes["default"].string
+  };
+  var _default = Page;
+  exports["default"] = _default;
+  var _c;
+  $RefreshReg$(_c, "Page");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

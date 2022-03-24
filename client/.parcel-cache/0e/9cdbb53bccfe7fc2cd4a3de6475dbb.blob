@@ -1,0 +1,24 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _Page = _interopRequireDefault(require("../components/Page"));
+var _jsxRuntime = require("react/jsx-runtime");
+var Home = function Home() {
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_Page["default"], {
+      source: "articlepage",
+      fields: "articlefields",
+      maxreturn: "10",
+      customtitle: "De 10 fresheste artiklene",
+      customlead: "Hot chicks, big robots & lots of ammo!! Get all the juicy news here!!"
+    })
+  );
+};
+_c = Home;
+var _default = Home;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "Home");

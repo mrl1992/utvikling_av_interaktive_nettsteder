@@ -1,0 +1,55 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _reactRouterDom = require("react-router-dom");
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _jsxRuntime = require("react/jsx-runtime");
+var Img = _styledComponents["default"].img.withConfig({
+  displayName: "StaffmemberItem__Img",
+  componentId: "sc-144ukgg-0"
+})(["width:20rem;height:auto;"]);
+_c = Img;
+var StaffmemberItem = function StaffmemberItem(_ref) {
+  var _data$img, _data$img$image, _data$img$image$asset, _data$img2;
+  var data = _ref.data;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Img, {
+        src: ("").concat(data === null || data === void 0 ? void 0 : (_data$img = data.img) === null || _data$img === void 0 ? void 0 : (_data$img$image = _data$img.image) === null || _data$img$image === void 0 ? void 0 : (_data$img$image$asset = _data$img$image.asset) === null || _data$img$image$asset === void 0 ? void 0 : _data$img$image$asset.url, "?&fm=webp"),
+        alt: data === null || data === void 0 ? void 0 : (_data$img2 = data.img) === null || _data$img2 === void 0 ? void 0 : _data$img2.alt
+      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("section", {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("h2", {
+          children: [data === null || data === void 0 ? void 0 : data.first, " ", data === null || data === void 0 ? void 0 : data.last]
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+          children: data === null || data === void 0 ? void 0 : data.role
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+          children: data === null || data === void 0 ? void 0 : data.bio
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
+          children: ["Alle artikler skrevet av ", data === null || data === void 0 ? void 0 : data.first]
+        }), data === null || data === void 0 ? void 0 : data.articles.map(function (article) {
+          return (
+            /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                to: ("/artikler/").concat(article.replace(/ /g, "-").toLowerCase()),
+                children: article
+              })
+            }, Math.random())
+          );
+        })]
+      })]
+    })
+  );
+};
+_c2 = StaffmemberItem;
+StaffmemberItem.propTypes = {
+  data: _propTypes["default"].object
+};
+var _default = StaffmemberItem;
+exports["default"] = _default;
+var _c, _c2;
+$RefreshReg$(_c, "Img");
+$RefreshReg$(_c2, "StaffmemberItem");

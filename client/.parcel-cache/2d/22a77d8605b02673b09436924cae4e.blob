@@ -1,0 +1,137 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _react = require("react");
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _styledComponents = _interopRequireDefault(require("styled-components"));
+  var _MapOutImages = _interopRequireDefault(require("./MapOutImages"));
+  var _ImgModal = _interopRequireDefault(require("./ImgModal"));
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+    return keys;
+  }
+  function _objectSpread(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          (0, _defineProperty2["default"])(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+    return target;
+  }
+  var StyledSection = _styledComponents["default"].section.withConfig({
+    displayName: "Galleri__StyledSection",
+    componentId: "sc-1jp8lye-0"
+  })(["display:grid;grid-template-rows:auto;background-color:", ";margin:auto;justify-content:center;width:100%;max-width:1100px;@media (max-width:", "){}@media (max-width:1300px){width:700px;}@media (max-width:", "){width:340px;}@media (max-width:", "){}"], function (_ref) {
+    var theme = _ref.theme;
+    return theme.colors.grey;
+  }, function (_ref2) {
+    var theme = _ref2.theme;
+    return theme.breakpoints.desktop;
+  }, function (_ref3) {
+    var theme = _ref3.theme;
+    return theme.breakpoints.tablet;
+  }, function (_ref4) {
+    var theme = _ref4.theme;
+    return theme.breakpoints.mobile;
+  });
+  _c = StyledSection;
+  var Box = _styledComponents["default"].section.withConfig({
+    displayName: "Galleri__Box",
+    componentId: "sc-1jp8lye-1"
+  })(["display:grid;grid-template-columns:repeat(3,1fr);margin:auto;@media (max-width:1300px){grid-template-columns:repeat(2,1fr);}@media (max-width:", "){grid-template-columns:1fr;}@media (max-width:", "){max-width:740px;}"], function (_ref5) {
+    var theme = _ref5.theme;
+    return theme.breakpoints.tablet;
+  }, function (_ref6) {
+    var theme = _ref6.theme;
+    return theme.breakpoints.mobile;
+  });
+  _c2 = Box;
+  var Galleri = function Galleri(_ref7) {
+    _s();
+    var data = _ref7.data;
+    var _useState = (0, _react.useState)(false), _useState2 = (0, _slicedToArray2["default"])(_useState, 1), loading = _useState2[0];
+    var _useState3 = (0, _react.useState)(data), _useState4 = (0, _slicedToArray2["default"])(_useState3, 1), galleryData = _useState4[0];
+    var _useState5 = (0, _react.useState)(null), _useState6 = (0, _slicedToArray2["default"])(_useState5, 1), error = _useState6[0];
+    var _useState7 = (0, _react.useState)([0]), _useState8 = (0, _slicedToArray2["default"])(_useState7, 2), activeIndex = _useState8[0], setActiveIndex = _useState8[1];
+    var _useState9 = (0, _react.useState)(false), _useState10 = (0, _slicedToArray2["default"])(_useState9, 2), modal = _useState10[0], setModal = _useState10[1];
+    var clickedImage = function clickedImage(e) {
+      var newActiveIndex = e.target.getAttribute('data-index');
+      setActiveIndex(newActiveIndex);
+      setModal(true);
+    };
+    var closeModal = function closeModal() {
+      setModal(false);
+    };
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_ImgModal["default"], {
+          closeModal: closeModal,
+          activeIndex: activeIndex,
+          setActiveIndex: setActiveIndex,
+          galleryData: galleryData,
+          modal: modal
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledSection, {
+          children: [loading ? /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+            children: "laster inn.."
+          }) : null, error ? /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
+            children: ["Noe skjedde: ", error]
+          }) : null, /*#__PURE__*/(0, _jsxRuntime.jsx)(Box, {
+            children: (galleryData === null || galleryData === void 0 ? void 0 : galleryData.length) > 0 || !error ? galleryData.map(function (imageData, index) {
+              return (
+                /*#__PURE__*/(0, _jsxRuntime.jsx)(_MapOutImages["default"], _objectSpread({
+                  clickedImage: clickedImage,
+                  activeIndex: activeIndex,
+                  index: index,
+                  loading: loading
+                }, imageData), index)
+              );
+            }) : null
+          })]
+        })]
+      })
+    );
+  };
+  _s(Galleri, "RRIxEfjeukLn3XhggNrvJPM+9Us=");
+  _c3 = Galleri;
+  Galleri.propTypes = {
+    data: _propTypes["default"].array.isRequired
+  };
+  var _default = Galleri;
+  exports["default"] = _default;
+  var _c, _c2, _c3;
+  $RefreshReg$(_c, "StyledSection");
+  $RefreshReg$(_c2, "Box");
+  $RefreshReg$(_c3, "Galleri");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

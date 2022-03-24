@@ -1,0 +1,109 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+  var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _react = require("react");
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _Styles = require("../styles/Styles");
+  var _Lead = _interopRequireDefault(require("./Lead"));
+  var _Loader = _interopRequireDefault(require("./Loader"));
+  var _Error = _interopRequireDefault(require("./Error"));
+  var _Title = _interopRequireDefault(require("./Title"));
+  var _FeedbackForm = _interopRequireDefault(require("./FeedbackForm"));
+  var _formService = require("../utils/formService");
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  var Form = function Form(_ref) {
+    _s();
+    var source = _ref.source, customtitle = _ref.customtitle, customlead = _ref.customlead;
+    var _useState = (0, _react.useState)('initial'), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), status = _useState2[0], setStatus = _useState2[1];
+    var onSubmit = /*#__PURE__*/(function () {
+      var _ref2 = (0, _asyncToGenerator2["default"])(/*#__PURE__*/_regenerator["default"].mark(function _callee(data) {
+        return _regenerator["default"].wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                setStatus('loading');
+                _context.prev = 1;
+                _context.next = 4;
+                return (0, _formService.createMessage)(data);
+              case 4:
+                setStatus('initial');
+                _context.next = 10;
+                break;
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](1);
+                setStatus('error');
+              case 10:
+                _context.prev = 10;
+                setStatus('success');
+                return _context.finish(10);
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 7, 10, 13]]);
+      }));
+      return function onSubmit(_x) {
+        return _ref2.apply(this, arguments);
+      };
+    })();
+    if (status === 'loading') return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.Container, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Loader["default"], {})
+      })
+    );
+    if (status === 'error') return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.Container, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Error["default"], {})
+      })
+    );
+    if (status === 'success') return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.Container, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Title["default"], {
+          title: "Takk! Din beskjed er sendt."
+        })
+      })
+    );
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_Styles.Container, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Title["default"], {
+            title: customtitle
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Lead["default"], {
+            lead: customlead
+          }), source === 'contact' && /*#__PURE__*/(0, _jsxRuntime.jsx)(_FeedbackForm["default"], {
+            onSubmit: onSubmit
+          })]
+        })
+      })
+    );
+  };
+  _s(Form, "C3c9myO0hCEG3okdudEPVlWMJFo=");
+  _c = Form;
+  Form.propTypes = {
+    source: _propTypes["default"].string,
+    customtitle: _propTypes["default"].string,
+    customlead: _propTypes["default"].string
+  };
+  var _default = Form;
+  exports["default"] = _default;
+  var _c;
+  $RefreshReg$(_c, "Form");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,23 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _Page = _interopRequireDefault(require("../components/Page"));
+var _jsxRuntime = require("react/jsx-runtime");
+var Category = function Category() {
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_Page["default"], {
+      source: "category",
+      fields: "categoryfields",
+      customtitle: "Kategorier",
+      customlead: "Her er en oversikt over alle våre kategorier og antall tilhørende artikler. Klikk deg videre inn på selve kategorien for kun å se gjeldende artikler, eller velg en artikkel direkte herifra. Happy readings!"
+    })
+  );
+};
+_c = Category;
+var _default = Category;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "Category");

@@ -1,0 +1,86 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _reactRouterDom = require("react-router-dom");
+var _imgUrl = _interopRequireDefault(require("../utils/imgUrl"));
+var _jsxRuntime = require("react/jsx-runtime");
+var StyledCourseBlock = _styledComponents["default"].div.withConfig({
+  displayName: "CourseList__StyledCourseBlock",
+  componentId: "zqu4ng-0"
+})(["margin:20px auto;"]);
+_c = StyledCourseBlock;
+var StyledTitle = _styledComponents["default"].h1.withConfig({
+  displayName: "CourseList__StyledTitle",
+  componentId: "zqu4ng-1"
+})(["color:white;margin-left:1rem;"]);
+_c2 = StyledTitle;
+var StyledDescription = _styledComponents["default"].p.withConfig({
+  displayName: "CourseList__StyledDescription",
+  componentId: "zqu4ng-2"
+})(["max-width:40rem;margin:2rem 0;margin-left:1rem;color:white;"]);
+var StyledInfoContainer = _styledComponents["default"].div.withConfig({
+  displayName: "CourseList__StyledInfoContainer",
+  componentId: "zqu4ng-3"
+})(["display:flex;justify-content:center;flex-flow:column;flex-wrap:wrap;"]);
+_c3 = StyledInfoContainer;
+var CourseWrapper = _styledComponents["default"].div.withConfig({
+  displayName: "CourseList__CourseWrapper",
+  componentId: "zqu4ng-4"
+})(["display:flex;align-items:center;"]);
+_c4 = CourseWrapper;
+var StyledImage = _styledComponents["default"].div.withConfig({
+  displayName: "CourseList__StyledImage",
+  componentId: "zqu4ng-5"
+})(["height:100%;max-height:fit-content;& img{max-width:15rem;}"]);
+_c5 = StyledImage;
+var StyledLink = (0, _styledComponents["default"])(_reactRouterDom.Link).withConfig({
+  displayName: "CourseList__StyledLink",
+  componentId: "zqu4ng-6"
+})(["margin-left:1rem;font-size:16px;color:black;border:1px solid black;width:fit-content;text-decoration:none;padding:10px;display:inline;background-color:#fed049;margin-bottom:10px;"]);
+_c6 = StyledLink;
+var CourseList = function CourseList(_ref) {
+  var courses = (0, _extends2["default"])({}, _ref);
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledCourseBlock, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(CourseWrapper, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(StyledImage, {
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)("img", {
+              src: (0, _imgUrl["default"])(courses === null || courses === void 0 ? void 0 : courses.image).width(400).format("webp").url(),
+              alt: ("Bilde av logo til ").concat(courses.title)
+            })
+          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledInfoContainer, {
+            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(StyledTitle, {
+              children: courses === null || courses === void 0 ? void 0 : courses.title
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledLink, {
+              to: ("/kurs/").concat(courses === null || courses === void 0 ? void 0 : courses.slug),
+              children: "Gå til kurs info"
+            })]
+          })]
+        })
+      })
+    })
+  );
+};
+_c7 = CourseList;
+CourseList.propTypes = {
+  image: _propTypes["default"].object,
+  title: _propTypes["default"].string,
+  slug: _propTypes["default"].string
+};
+var _default = CourseList;
+exports["default"] = _default;
+var _c, _c2, _c3, _c4, _c5, _c6, _c7;
+$RefreshReg$(_c, "StyledCourseBlock");
+$RefreshReg$(_c2, "StyledTitle");
+$RefreshReg$(_c3, "StyledInfoContainer");
+$RefreshReg$(_c4, "CourseWrapper");
+$RefreshReg$(_c5, "StyledImage");
+$RefreshReg$(_c6, "StyledLink");
+$RefreshReg$(_c7, "CourseList");

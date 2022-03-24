@@ -1,0 +1,33 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _CategoryList = _interopRequireDefault(require("./CategoryList"));
+var _jsxRuntime = require("react/jsx-runtime");
+var Categories = function Categories(_ref) {
+  var data = _ref.data;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)("section", {
+        children: data && data.map(function (category) {
+          return (
+            /*#__PURE__*/(0, _jsxRuntime.jsx)(_CategoryList["default"], {
+              data: category
+            }, category._id)
+          );
+        })
+      })
+    })
+  );
+};
+_c = Categories;
+Categories.propTypes = {
+  data: _propTypes["default"].array
+};
+var _default = Categories;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "Categories");

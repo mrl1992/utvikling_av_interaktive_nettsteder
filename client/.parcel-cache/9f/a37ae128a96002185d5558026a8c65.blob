@@ -1,0 +1,56 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _styledComponents = require("styled-components");
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _react = _interopRequireDefault(require("react"));
+  var _Global = _interopRequireDefault(require("./Global"));
+  var _jsxRuntime = require("react/jsx-runtime");
+  var theme = {
+    breakpoints: {
+      desktop: '2000px',
+      laptop: '1200px',
+      tablet: '992px',
+      mobile: '767px'
+    },
+    colors: {
+      black: '#222831',
+      grey: '#393e46',
+      teal: '#00adb5',
+      white: '#eeeeee',
+      yellow: '#fed049',
+      red: '#810034'
+    }
+  };
+  var Theme = function Theme(_ref) {
+    var children = _ref.children;
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Global["default"], {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_styledComponents.ThemeProvider, {
+          theme: theme,
+          children: children
+        })]
+      })
+    );
+  };
+  _c = Theme;
+  Theme.propTypes = {
+    children: _propTypes["default"].object.isRequired
+  };
+  var _default = Theme;
+  exports["default"] = _default;
+  var _c;
+  $RefreshReg$(_c, "Theme");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

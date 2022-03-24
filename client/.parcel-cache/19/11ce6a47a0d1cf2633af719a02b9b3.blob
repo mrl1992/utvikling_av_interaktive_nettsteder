@@ -1,0 +1,38 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _Styles = require("../styles/Styles");
+var _jsxRuntime = require("react/jsx-runtime");
+var Published = function Published(_ref) {
+  var _createdAt = _ref._createdAt;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_Styles.Content, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.ContentDescription, {
+          children: "Publisert:"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.ContentList, {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.ContentItem, {
+            children: new Date(_createdAt).toLocaleDateString('no', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+              time: ''
+            })
+          })
+        })]
+      })
+    })
+  );
+};
+_c = Published;
+Published.propTypes = {
+  _createdAt: _propTypes["default"].string
+};
+var _default = Published;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "Published");

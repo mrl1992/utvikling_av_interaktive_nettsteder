@@ -1,0 +1,104 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getItem = exports.getPage = void 0;
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+var _client = _interopRequireDefault(require("./client"));
+var articleFields = "\n\t_createdAt,\n\t_id,\n\t_type,\n\t'authors': author[]->{first, last, _id, 'slug': slug.current},\n\t'categories': category[]->{category, _id},\n\tclickbait,\n\t'content': content[]{...}\n\t,\n\tfeatured,\n\t'links': link[]{\n\t\t_key,\n\t\tname,\n\t\thref\n\t},\n\t'img': image{\n\t\talt,\n\t\timage{\n\t\t\tasset->{url}\n\t\t},\n\t},\n\t'raw': image,\n\tpublished,\n\t'slug': slug.current,\n\ttitle,\n";
+var personFields = "\n\t_id,\n\t_type,\n\tbio,\n\tfirst,\n\t'img': image{\n\t\talt,\n\t\timage{\n\t\t\tasset->{url}\n\t\t},\n\t},\n\tlast,\n\trole,\n\t'slug': slug.current,\n\t'articles': *[_type == \"articlepage\" && references(^._id)].title,\n\t'articlesslugs': *[_type == \"articlepage\" && references(^._id)].slug.current,\n";
+var galleriFields = "\n\t_createdAt,\n\t_id,\n\t'img': image{\n\t\talt,\n\t\timage{\n\t\t\tasset->{url}\n\t\t},\n\t},\n";
+var categoriesFields = "\n\t_id,\n\tcategory,\n";
+var categoryFields = "\n\t_id,\n\t_type,\n\tcategory,\n\t'articles': *[_type == \"articlepage\" && references(^._id)].title,\n\t'articlesslugs': *[_type == \"articlepage\" && references(^._id)].slug.current,\n";
+var courseFields = "\n    ...,\n    'slug': slug.current,\n";
+var pagefields = "";
+var getPage = /*#__PURE__*/(function () {
+  var _ref = (0, _asyncToGenerator2["default"])(/*#__PURE__*/_regenerator["default"].mark(function _callee(source, fields, sortorder) {
+    var data;
+    return _regenerator["default"].wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            if (fields === 'articlefields') {
+              pagefields = articleFields;
+            }
+            if (fields === 'personfields') {
+              pagefields = personFields;
+            }
+            if (fields === 'gallerifields') {
+              pagefields = galleriFields;
+            }
+            if (fields === 'categoriesfields') {
+              pagefields = categoriesFields;
+            }
+            if (fields === 'categoryfields') {
+              pagefields = categoryFields;
+            }
+            if (fields === 'coursefields') {
+              pagefields = courseFields;
+            }
+            _context.next = 8;
+            return _client["default"].fetch(("*[_type == $source]| order(_createdAt ").concat(sortorder || 'desc', "){").concat(pagefields, "}"), {
+              source: source,
+              fields: fields
+            });
+          case 8:
+            data = _context.sent;
+            return _context.abrupt("return", data);
+          case 10:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return function getPage(_x, _x2, _x3) {
+    return _ref.apply(this, arguments);
+  };
+})();
+exports.getPage = getPage;
+var getItem = /*#__PURE__*/(function () {
+  var _ref2 = (0, _asyncToGenerator2["default"])(/*#__PURE__*/_regenerator["default"].mark(function _callee2(source, fields, slug) {
+    var data;
+    return _regenerator["default"].wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            if (fields === 'articlefields') {
+              pagefields = articleFields;
+            }
+            if (fields === 'personfields') {
+              pagefields = personFields;
+            }
+            if (fields === 'gallerifields') {
+              pagefields = galleriFields;
+            }
+            if (fields === 'categoryfields') {
+              pagefields = categoryFields;
+            }
+            if (fields === 'coursefields') {
+              pagefields = courseFields;
+            }
+            _context2.next = 7;
+            return _client["default"].fetch(("*[_type == $source && slug.current == $slug]{").concat(pagefields, "}"), {
+              slug: slug,
+              source: source,
+              fields: fields
+            });
+          case 7:
+            data = _context2.sent;
+            return _context2.abrupt("return", data === null || data === void 0 ? void 0 : data[0]);
+          case 9:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return function getItem(_x4, _x5, _x6) {
+    return _ref2.apply(this, arguments);
+  };
+})();
+exports.getItem = getItem;

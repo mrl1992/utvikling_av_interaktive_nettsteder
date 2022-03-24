@@ -1,0 +1,150 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+  var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _react = require("react");
+  var _reactRouterDom = require("react-router-dom");
+  var _styledComponents = _interopRequireDefault(require("styled-components"));
+  var _courseService = require("../utils/courseService");
+  var _imgUrl = _interopRequireDefault(require("../utils/imgUrl"));
+  var _Modal = _interopRequireDefault(require("../components/Modal"));
+  var _Title = _interopRequireDefault(require("../components/Title"));
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  var StyledWrapper = _styledComponents["default"].section.withConfig({
+    displayName: "Course__StyledWrapper",
+    componentId: "sc-1chxb04-0"
+  })(["color:white;background:", ";width:100%;margin:0 auto;"], function (_ref) {
+    var theme = _ref.theme;
+    return theme.colors.black;
+  });
+  _c = StyledWrapper;
+  var StyledImage = _styledComponents["default"].div.withConfig({
+    displayName: "Course__StyledImage",
+    componentId: "sc-1chxb04-1"
+  })(["display:flex;justify-content:center;"]);
+  _c2 = StyledImage;
+  var TextContainer = _styledComponents["default"].section.withConfig({
+    displayName: "Course__TextContainer",
+    componentId: "sc-1chxb04-2"
+  })(["width:100%;max-width:40rem;margin:0 auto;display:flex;flex-direction:column;justify-content:center;align-items:center;h1{margin:2rem auto;}h2{margin:2rem auto;}p{color:white;margin:30px auto;}button{display:flex;align-items:center;justify-content:center;padding:10px;background-color:#fed049;color:black;}"]);
+  _c3 = TextContainer;
+  var Course = function Course() {
+    _s();
+    var _useState = (0, _react.useState)(null), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), course = _useState2[0], setCourse = _useState2[1];
+    var _useState3 = (0, _react.useState)(false), _useState4 = (0, _slicedToArray2["default"])(_useState3, 2), modal = _useState4[0], setModal = _useState4[1];
+    var _useState5 = (0, _react.useState)(false), _useState6 = (0, _slicedToArray2["default"])(_useState5, 2), error = _useState6[0], setError = _useState6[1];
+    var _useState7 = (0, _react.useState)(false), _useState8 = (0, _slicedToArray2["default"])(_useState7, 2), loading = _useState8[0], setLoading = _useState8[1];
+    var _useParams = (0, _reactRouterDom.useParams)(), slug = _useParams.slug;
+    var openModal = function openModal() {
+      setModal(function (prev) {
+        return !prev;
+      });
+    };
+    (0, _react.useEffect)(function () {
+      var fetchCourse = /*#__PURE__*/(function () {
+        var _ref2 = (0, _asyncToGenerator2["default"])(/*#__PURE__*/_regenerator["default"].mark(function _callee() {
+          var courseData;
+          return _regenerator["default"].wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  setLoading(true);
+                  _context.prev = 1;
+                  _context.next = 4;
+                  return (0, _courseService.getCourse)(slug);
+                case 4:
+                  courseData = _context.sent;
+                  setCourse(courseData);
+                  _context.next = 11;
+                  break;
+                case 8:
+                  _context.prev = 8;
+                  _context.t0 = _context["catch"](1);
+                  console.log(_context.t0);
+                case 11:
+                  _context.prev = 11;
+                  setLoading(false);
+                  return _context.finish(11);
+                case 14:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, null, [[1, 8, 11, 14]]);
+        }));
+        return function fetchCourse() {
+          return _ref2.apply(this, arguments);
+        };
+      })();
+      fetchCourse();
+    }, [slug]);
+    if (!course && error) return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        children: "Noe gikk galt ..."
+      })
+    );
+    if (!course && loading) return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        children: "Siden laster ... "
+      })
+    );
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledWrapper, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Modal["default"], {
+            modal: modal,
+            setModal: setModal,
+            freeCourse: course === null || course === void 0 ? void 0 : course.free,
+            courseTitle: course === null || course === void 0 ? void 0 : course.title,
+            price: course === null || course === void 0 ? void 0 : course.price
+          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(TextContainer, {
+            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Title["default"], {
+              title: "Velkommen til kurs i" + (course === null || course === void 0 ? void 0 : course.title)
+            }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("h2", {
+              children: ["Kurset har oppstart", " ", course === null || course === void 0 ? void 0 : course.startDate.split("-").reverse().join("-")]
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+              children: course === null || course === void 0 ? void 0 : course.description
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledImage, {
+              children: /*#__PURE__*/(0, _jsxRuntime.jsx)("img", {
+                src: (0, _imgUrl["default"])(course === null || course === void 0 ? void 0 : course.image).width(400).format("webp").url(),
+                alt: ("Bilde av logo til ").concat(course === null || course === void 0 ? void 0 : course.title)
+              })
+            }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
+              children: ["Adresse: ", course === null || course === void 0 ? void 0 : course.adress, ", ", course === null || course === void 0 ? void 0 : course.zipcode, " ", course === null || course === void 0 ? void 0 : course.location.toUpperCase()]
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+              type: "button",
+              onClick: openModal,
+              children: "Meld deg på"
+            })]
+          })]
+        })
+      })
+    );
+  };
+  _s(Course, "WOf5B+ep+iukV4aMZZuy9mIqTiM=", false, function () {
+    return [_reactRouterDom.useParams];
+  });
+  _c4 = Course;
+  var _default = Course;
+  exports["default"] = _default;
+  var _c, _c2, _c3, _c4;
+  $RefreshReg$(_c, "StyledWrapper");
+  $RefreshReg$(_c2, "StyledImage");
+  $RefreshReg$(_c3, "TextContainer");
+  $RefreshReg$(_c4, "Course");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,63 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _reactRouterDom = require("react-router-dom");
+var _imgUrl = require("../utils/imgUrl");
+var _jsxRuntime = require("react/jsx-runtime");
+var Content = _styledComponents["default"].section.withConfig({
+  displayName: "Staffmember__Content",
+  componentId: "sc-2sig6f-0"
+})(["padding:5px;"]);
+_c = Content;
+var Img = _styledComponents["default"].img.withConfig({
+  displayName: "Staffmember__Img",
+  componentId: "sc-2sig6f-1"
+})(["width:40%;height:1000px;"]);
+_c2 = Img;
+var Staffmember = function Staffmember(_ref) {
+  var _img$image, _img$image$asset;
+  var bio = _ref.bio, first = _ref.first, img = _ref.img, last = _ref.last, role = _ref.role, slug = _ref.slug, viewtype = _ref.viewtype;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("section", {
+        className: ("article").concat(viewtype),
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+          to: ("om/").concat(slug),
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Img, {
+            src: ("").concat(img === null || img === void 0 ? void 0 : (_img$image = img.image) === null || _img$image === void 0 ? void 0 : (_img$image$asset = _img$image.asset) === null || _img$image$asset === void 0 ? void 0 : _img$image$asset.url, "?&fm=webp"),
+            alt: img === null || img === void 0 ? void 0 : img.alt
+          })
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(Content, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("h2", {
+            children: [first, " ", last]
+          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
+            children: ["Rolle: ", role]
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+            children: bio
+          })]
+        })]
+      })
+    })
+  );
+};
+_c3 = Staffmember;
+Staffmember.propTypes = {
+  bio: _propTypes["default"].string,
+  first: _propTypes["default"].string,
+  img: _propTypes["default"].object,
+  last: _propTypes["default"].string,
+  role: _propTypes["default"].string,
+  slug: _propTypes["default"].string,
+  viewtype: _propTypes["default"].string
+};
+var _default = Staffmember;
+exports["default"] = _default;
+var _c, _c2, _c3;
+$RefreshReg$(_c, "Content");
+$RefreshReg$(_c2, "Img");
+$RefreshReg$(_c3, "Staffmember");

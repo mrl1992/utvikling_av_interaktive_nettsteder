@@ -1,0 +1,50 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _reactRouterDom = require("react-router-dom");
+var _Styles = require("../styles/Styles");
+var _jsxRuntime = require("react/jsx-runtime");
+var _templateObject, _templateObject2;
+var ContentDescriptionBox = (0, _styledComponents["default"])(_Styles.ContentDescription)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2["default"])(["\n  color: #222831;\n"])));
+_c = ContentDescriptionBox;
+var Linky = (0, _styledComponents["default"])(_reactRouterDom.Link)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2["default"])(["\n  color: #222831;\n"])));
+_c2 = Linky;
+var Category = function Category(_ref) {
+  var categories = _ref.categories;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_Styles.Content, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(ContentDescriptionBox, {
+          children: "Kategori:"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.ContentList, {
+          children: (categories === null || categories === void 0 ? void 0 : categories.length) > 0 && categories.map(function (category) {
+            return (
+              /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.ContentItem, {
+                children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Linky, {
+                  to: ("/kategori/").concat(category === null || category === void 0 ? void 0 : category.category.toLowerCase()),
+                  children: category === null || category === void 0 ? void 0 : category.category
+                })
+              }, category === null || category === void 0 ? void 0 : category._id)
+            );
+          })
+        })]
+      })
+    })
+  );
+};
+_c3 = Category;
+Category.propTypes = {
+  categories: _propTypes["default"].array
+};
+var _default = Category;
+exports["default"] = _default;
+var _c, _c2, _c3;
+$RefreshReg$(_c, "ContentDescriptionBox");
+$RefreshReg$(_c2, "Linky");
+$RefreshReg$(_c3, "Category");

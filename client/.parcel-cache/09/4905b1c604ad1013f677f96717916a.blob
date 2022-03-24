@@ -1,0 +1,121 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _styledComponents = _interopRequireDefault(require("styled-components"));
+  var _react = require("react");
+  var _fi = require("react-icons/fi");
+  var _Styles = require("../styles/Styles");
+  var _Staffmember = _interopRequireDefault(require("./Staffmember"));
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+    return keys;
+  }
+  function _objectSpread(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          (0, _defineProperty2["default"])(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+    return target;
+  }
+  var Viewtype = _styledComponents["default"].section.withConfig({
+    displayName: "About__Viewtype",
+    componentId: "wuzgro-0"
+  })(["padding-top:0;display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:40px;height:58px;"]);
+  _c = Viewtype;
+  var ToggleButton = (0, _styledComponents["default"])(_Styles.Button).withConfig({
+    displayName: "About__ToggleButton",
+    componentId: "wuzgro-1"
+  })(["line-height:40px;width:40px;height:40px;font-size:20px;align-self:center;justify-self:end;margin-right:4px;border-radius:5px;position:relative;&:hover::before{content:attr(data-text);position:absolute;top:-50px;left:0px;color:", ";border-radius:5px;display:block;width:100px;text-align:center;font-size:14px;padding:0 5px;background:linear-gradient( 220deg,", " 0%,", " 100% );}"], function (_ref) {
+    var theme = _ref.theme;
+    return theme.colors.white;
+  }, function (_ref2) {
+    var theme = _ref2.theme;
+    return theme.colors.grey;
+  }, function (_ref3) {
+    var theme = _ref3.theme;
+    return theme.colors.black;
+  });
+  _c2 = ToggleButton;
+  var About = function About(_ref4) {
+    _s();
+    var data = _ref4.data;
+    var _useState = (0, _react.useState)('gridview'), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), viewtype = _useState2[0], setViewtype = _useState2[1];
+    var _useState3 = (0, _react.useState)('listview'), _useState4 = (0, _slicedToArray2["default"])(_useState3, 2), change = _useState4[0], setChange = _useState4[1];
+    var toggleView = function toggleView() {
+      if (viewtype === 'gridview') {
+        setChange(viewtype);
+        setViewtype('listview');
+      }
+      if (viewtype === 'listview') {
+        setChange(viewtype);
+        setViewtype('gridview');
+      }
+    };
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Viewtype, {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(ToggleButton, {
+            type: "button",
+            onClick: toggleView,
+            "data-text": ("Bytt til ").concat(change),
+            children: viewtype === 'gridview' ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_fi.FiList, {}) : /*#__PURE__*/(0, _jsxRuntime.jsx)(_fi.FiGrid, {})
+          })
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("section", {
+          className: viewtype,
+          children: data && data.map(function (employee) {
+            return (
+              /*#__PURE__*/(0, _jsxRuntime.jsx)(_Staffmember["default"], _objectSpread({
+                viewtype: viewtype
+              }, employee), employee._id)
+            );
+          })
+        })]
+      })
+    );
+  };
+  _s(About, "LNQld3zP5MC6XrR8yIyeXhNiLDs=");
+  _c3 = About;
+  About.propTypes = {
+    data: _propTypes["default"].array
+  };
+  var _default = About;
+  exports["default"] = _default;
+  var _c, _c2, _c3;
+  $RefreshReg$(_c, "Viewtype");
+  $RefreshReg$(_c2, "ToggleButton");
+  $RefreshReg$(_c3, "About");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

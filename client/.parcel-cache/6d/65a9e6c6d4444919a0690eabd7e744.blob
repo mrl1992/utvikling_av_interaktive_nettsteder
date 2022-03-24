@@ -1,0 +1,73 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.useItem = void 0;
+  var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+  var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _react = require("react");
+  var _reactRouterDom = require("react-router-dom");
+  var _pageService = require("../utils/pageService");
+  var _s = $RefreshSig$();
+  var useItem = function useItem(source, fields, url) {
+    _s();
+    var _useParams = (0, _reactRouterDom.useParams)(), slug = _useParams.slug;
+    var _useState = (0, _react.useState)('initial'), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), status = _useState2[0], setStatus = _useState2[1];
+    var _useState3 = (0, _react.useState)(null), _useState4 = (0, _slicedToArray2["default"])(_useState3, 2), data = _useState4[0], setData = _useState4[1];
+    (0, _react.useEffect)(function () {
+      var fetchDataAsync = /*#__PURE__*/(function () {
+        var _ref = (0, _asyncToGenerator2["default"])(/*#__PURE__*/_regenerator["default"].mark(function _callee() {
+          var page;
+          return _regenerator["default"].wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  setStatus('loading');
+                  _context.prev = 1;
+                  _context.next = 4;
+                  return (0, _pageService.getItem)(source, fields, slug);
+                case 4:
+                  page = _context.sent;
+                  setData(page);
+                  setStatus('initial');
+                  _context.next = 13;
+                  break;
+                case 9:
+                  _context.prev = 9;
+                  _context.t0 = _context["catch"](1);
+                  setData(_context.t0);
+                  setStatus('error');
+                case 13:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, null, [[1, 9]]);
+        }));
+        return function fetchDataAsync() {
+          return _ref.apply(this, arguments);
+        };
+      })();
+      fetchDataAsync();
+    }, [source, fields, url, slug]);
+    return {
+      status: status,
+      data: data
+    };
+  };
+  exports.useItem = useItem;
+  _s(useItem, "4QXk+nOjjpQ8p0JXZ+fnXD2y+Zc=", false, function () {
+    return [_reactRouterDom.useParams];
+  });
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

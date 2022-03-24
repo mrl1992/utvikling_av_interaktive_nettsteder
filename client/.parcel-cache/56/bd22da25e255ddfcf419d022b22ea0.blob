@@ -1,0 +1,87 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _react = require("react");
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  var GoogleMap = function GoogleMap(_ref) {
+    _s();
+    var data = _ref.data;
+    var googleMapRef = (0, _react.useRef)();
+    var googleMap;
+    (0, _react.useEffect)(function () {
+      var googleMapScript = document.createElement('script');
+      googleMapScript.src = ("https://maps.googleapis.com/maps/api/js?key=").concat("AIzaSyBmAcpwDKPjjvqfvzx1A0Gh_mAMnarUG_4", "&libraries=places");
+      googleMapScript.async = true;
+      window.document.body.appendChild(googleMapScript);
+      googleMapScript.addEventListener('load', function () {
+        getLatLng();
+      });
+    }, []);
+    var createGoogleMap = function createGoogleMap(coordinates) {
+      googleMap = new window.google.maps.Map(googleMapRef.current, {
+        zoom: 15,
+        center: {
+          lat: coordinates.lat(),
+          lng: coordinates.lng()
+        },
+        disableDefaultUI: false
+      });
+    };
+    var getLatLng = function getLatLng() {
+      var _data$, _data$2;
+      var lat;
+      var lng;
+      var placeId;
+      new window.google.maps.Geocoder().geocode({
+        address: ("").concat((_data$ = data[0]) === null || _data$ === void 0 ? void 0 : _data$.address, ", ").concat((_data$2 = data[0]) === null || _data$2 === void 0 ? void 0 : _data$2.postalcode)
+      }, function (results, status) {
+        if (status === window.google.maps.GeocoderStatus.OK) {
+          placeId = results[0].place_id;
+          createGoogleMap(results[0].geometry.location);
+          lat = results[0].geometry.location.lat();
+          lng = results[0].geometry.location.lng();
+          new window.google.maps.Marker({
+            position: {
+              lat: lat,
+              lng: lng
+            },
+            map: googleMap,
+            animation: window.google.maps.Animation.DROP,
+            title: ("").concat(data.name)
+          });
+        } else {
+          alert(("Det har skjedd en feil: ").concat(status));
+        }
+      });
+    };
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        id: "google-map",
+        ref: googleMapRef,
+        style: {
+          width: 'auto',
+          height: '300px',
+          flex: '1'
+        }
+      })
+    );
+  };
+  _s(GoogleMap, "Y0VbcuztHeUANOdthotyjUxY7g8=");
+  _c = GoogleMap;
+  var _default = GoogleMap;
+  exports["default"] = _default;
+  var _c;
+  $RefreshReg$(_c, "GoogleMap");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,131 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _react = require("react");
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _styledComponents = _interopRequireDefault(require("styled-components"));
+  var _Styles = require("../styles/Styles");
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  var Fieldset = _styledComponents["default"].fieldset.withConfig({
+    displayName: "FeedbackForm__Fieldset",
+    componentId: "sc-1itarwu-0"
+  })(["width:600px;display:grid;grid-template-rows:auto;gap:20px;border:none;margin:0px auto;padding:0;"]);
+  _c = Fieldset;
+  var Input = _styledComponents["default"].input.withConfig({
+    displayName: "FeedbackForm__Input",
+    componentId: "sc-1itarwu-1"
+  })(["margin-top:5px;width:100%;height:40px;@media screen and (max-width:1100px){width:100%;}"]);
+  _c2 = Input;
+  var Textarea = _styledComponents["default"].textarea.withConfig({
+    displayName: "FeedbackForm__Textarea",
+    componentId: "sc-1itarwu-2"
+  })(["margin-top:5px;width:100%;height:135px;text-indent:2px;padding-top:15px;"]);
+  _c3 = Textarea;
+  var Label = _styledComponents["default"].label.withConfig({
+    displayName: "FeedbackForm__Label",
+    componentId: "sc-1itarwu-3"
+  })(["color:", ";"], function (_ref) {
+    var theme = _ref.theme;
+    return theme.shift.text;
+  });
+  _c4 = Label;
+  var Submit = (0, _styledComponents["default"])(_Styles.Button).withConfig({
+    displayName: "FeedbackForm__Submit",
+    componentId: "sc-1itarwu-4"
+  })(["margin:0 auto;width:100px;height:40px;border-radius:5px;"]);
+  _c5 = Submit;
+  var FeedbackForm = function FeedbackForm(_ref2) {
+    _s();
+    var onSubmit = _ref2.onSubmit;
+    var _useState = (0, _react.useState)(''), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), name = _useState2[0], setName = _useState2[1];
+    var _useState3 = (0, _react.useState)(''), _useState4 = (0, _slicedToArray2["default"])(_useState3, 2), message = _useState4[0], setMessage = _useState4[1];
+    var _useState5 = (0, _react.useState)(''), _useState6 = (0, _slicedToArray2["default"])(_useState5, 2), mail = _useState6[0], setMail = _useState6[1];
+    var handleSubmit = function handleSubmit(event) {
+      event.preventDefault();
+      onSubmit({
+        name: name,
+        message: message,
+        mail: mail
+      });
+    };
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)("form", {
+          onSubmit: handleSubmit,
+          method: "POST",
+          children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(Fieldset, {
+            children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(Label, {
+              id: "name",
+              children: ["Navn:", /*#__PURE__*/(0, _jsxRuntime.jsx)(Input, {
+                type: "text",
+                id: "name",
+                placeholder: "Skriv inn ditt navn",
+                onChange: function onChange(event) {
+                  return setName(event.target.value);
+                },
+                value: name,
+                required: true
+              })]
+            }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(Label, {
+              id: "mail",
+              children: ["E-post:", /*#__PURE__*/(0, _jsxRuntime.jsx)(Input, {
+                type: "text",
+                id: "mail",
+                placeholder: "Mail address",
+                onChange: function onChange(event) {
+                  return setMail(event.target.value);
+                },
+                value: mail,
+                required: true
+              })]
+            }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(Label, {
+              id: "message",
+              children: ["Beskjed:", /*#__PURE__*/(0, _jsxRuntime.jsx)(Textarea, {
+                cols: "50",
+                rows: "5",
+                id: "message",
+                placeholder: "Hva har du på hjertet??",
+                onChange: function onChange(event) {
+                  return setMessage(event.target.value);
+                },
+                value: message,
+                required: true
+              })]
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)(Submit, {
+              type: "submit",
+              children: "Send"
+            })]
+          })
+        })
+      })
+    );
+  };
+  _s(FeedbackForm, "oriKA0U+gHMnovleavEEWYkCKLI=");
+  _c6 = FeedbackForm;
+  FeedbackForm.propTypes = {
+    onSubmit: _propTypes["default"].func
+  };
+  var _default = FeedbackForm;
+  exports["default"] = _default;
+  var _c, _c2, _c3, _c4, _c5, _c6;
+  $RefreshReg$(_c, "Fieldset");
+  $RefreshReg$(_c2, "Input");
+  $RefreshReg$(_c3, "Textarea");
+  $RefreshReg$(_c4, "Label");
+  $RefreshReg$(_c5, "Submit");
+  $RefreshReg$(_c6, "FeedbackForm");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,73 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _fi = require("react-icons/fi");
+var _bi = require("react-icons/bi");
+var _Search = _interopRequireDefault(require("./Search"));
+var _Styles = require("../styles/Styles");
+var _jsxRuntime = require("react/jsx-runtime");
+var StyledSearchbar = _styledComponents["default"].section.withConfig({
+  displayName: "Searchbar__StyledSearchbar",
+  componentId: "rtky60-0"
+})(["padding-top:0;display:grid;grid-template-columns:0.5fr 3fr 0.5fr;gap:20px;margin-bottom:40px;"]);
+_c = StyledSearchbar;
+var ToggleButton = (0, _styledComponents["default"])(_Styles.Button).withConfig({
+  displayName: "Searchbar__ToggleButton",
+  componentId: "rtky60-1"
+})(["line-height:40px;width:40px;height:40px;font-size:20px;align-self:center;justify-self:center;margin-right:4px;border-radius:5px;position:relative;&:hover::before{content:attr(data-text);position:absolute;top:-50px;left:0px;color:", ";border-radius:5px;display:block;width:100px;text-align:center;font-size:14px;padding:0 5px;background:linear-gradient( 220deg,", " 0%,", " 100% );}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.colors.white;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.colors.grey;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.colors.black;
+});
+_c2 = ToggleButton;
+var Searchbar = function Searchbar(_ref4) {
+  var change = _ref4.change, search = _ref4.search, setSearch = _ref4.setSearch, sortorder = _ref4.sortorder, viewtype = _ref4.viewtype, toggleSort = _ref4.toggleSort, toggleView = _ref4.toggleView;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledSearchbar, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Search["default"], {
+          search: search,
+          setSearch: setSearch
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("section", {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(ToggleButton, {
+            type: "button",
+            onClick: toggleView,
+            "data-text": ("Bytt til ").concat(change),
+            children: viewtype === 'gridview' ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_fi.FiList, {}) : /*#__PURE__*/(0, _jsxRuntime.jsx)(_fi.FiGrid, {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(ToggleButton, {
+            type: "button",
+            onClick: toggleSort,
+            "data-text": ("Sorter ").concat(sortorder),
+            children: sortorder === 'desc' ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_bi.BiSortUp, {}) : /*#__PURE__*/(0, _jsxRuntime.jsx)(_bi.BiSortDown, {})
+          })]
+        })]
+      })
+    })
+  );
+};
+_c3 = Searchbar;
+Searchbar.propTypes = {
+  change: _propTypes["default"].string,
+  search: _propTypes["default"].string,
+  setSearch: _propTypes["default"].func,
+  sortorder: _propTypes["default"].string,
+  toggleSort: _propTypes["default"].func,
+  toggleView: _propTypes["default"].func,
+  viewtype: _propTypes["default"].string
+};
+var _default = Searchbar;
+exports["default"] = _default;
+var _c, _c2, _c3;
+$RefreshReg$(_c, "StyledSearchbar");
+$RefreshReg$(_c2, "ToggleButton");
+$RefreshReg$(_c3, "Searchbar");

@@ -1,0 +1,121 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _react = require("react");
+  var _styledComponents = _interopRequireDefault(require("styled-components"));
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  var Gallery = _styledComponents["default"].section.withConfig({
+    displayName: "Galleri__Gallery",
+    componentId: "sc-1jp8lye-0"
+  })(["display:grid;grid-template-rows:auto;background-color:", ";margin:0 auto;padding:15px 0;justify-content:center;width:100%;max-width:1050px;@media (max-width:", "){}@media (max-width:1300px){width:700px;}@media (max-width:", "){width:340px;}@media (max-width:", "){}"], function (_ref) {
+    var theme = _ref.theme;
+    return theme.colors.grey;
+  }, function (_ref2) {
+    var theme = _ref2.theme;
+    return theme.breakpoints.desktop;
+  }, function (_ref3) {
+    var theme = _ref3.theme;
+    return theme.breakpoints.tablet;
+  }, function (_ref4) {
+    var theme = _ref4.theme;
+    return theme.breakpoints.mobile;
+  });
+  _c = Gallery;
+  var Callout = _styledComponents["default"].section.withConfig({
+    displayName: "Galleri__Callout",
+    componentId: "sc-1jp8lye-1"
+  })(["width:100%;text-align:center;color:", ";"], function (_ref5) {
+    var theme = _ref5.theme;
+    return theme.colors.white;
+  });
+  _c2 = Callout;
+  var Hero = _styledComponents["default"].img.withConfig({
+    displayName: "Galleri__Hero",
+    componentId: "sc-1jp8lye-2"
+  })(["width:1020px;height:680px;object-fit:cover;@media (max-width:1300px){width:700px;height:auto;}@media (max-width:", "){width:340px;}"], function (_ref6) {
+    var theme = _ref6.theme;
+    return theme.breakpoints.tablet;
+  });
+  _c3 = Hero;
+  var Box = _styledComponents["default"].section.withConfig({
+    displayName: "Galleri__Box",
+    componentId: "sc-1jp8lye-3"
+  })(["display:grid;grid-template-columns:repeat(3,1fr);gap:20px;justify-items:center;margin-top:40px;@media (max-width:1300px){grid-template-columns:repeat(2,1fr);}@media (max-width:", "){grid-template-columns:1fr;}@media (max-width:", "){max-width:740px;}& img{width:320px;height:250px;cursor:pointer;}"], function (_ref7) {
+    var theme = _ref7.theme;
+    return theme.breakpoints.tablet;
+  }, function (_ref8) {
+    var theme = _ref8.theme;
+    return theme.breakpoints.mobile;
+  });
+  _c4 = Box;
+  var Img = _styledComponents["default"].img.withConfig({
+    displayName: "Galleri__Img",
+    componentId: "sc-1jp8lye-4"
+  })(["width:320px;"]);
+  _c5 = Img;
+  var Galleri = function Galleri(_ref9) {
+    _s();
+    var data = _ref9.data;
+    var _useState = (0, _react.useState)(data[0].img.image.asset.url), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), currentImg = _useState2[0], setCurrentImg = _useState2[1];
+    var _useState3 = (0, _react.useState)(data[0].img.alt), _useState4 = (0, _slicedToArray2["default"])(_useState3, 2), currentAlt = _useState4[0], setcurrentAlt = _useState4[1];
+    var imageClicker = function imageClicker(img) {
+      setCurrentImg(img.img.image.asset.url);
+      setcurrentAlt(img.img.alt);
+    };
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(Gallery, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(Callout, {
+            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Hero, {
+              src: ("").concat(currentImg, "?h=680&w=1020&fm=webp"),
+              alt: currentAlt
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("h2", {
+              children: currentAlt
+            })]
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(Box, {
+            children: data.map(function (img) {
+              return (
+                /*#__PURE__*/(0, _jsxRuntime.jsx)(Img, {
+                  src: ("").concat(img.img.image.asset.url, "?h=500&w=640&fm=webp"),
+                  alt: img.img.alt,
+                  onClick: function onClick() {
+                    return imageClicker(img);
+                  }
+                }, img._id)
+              );
+            })
+          })]
+        })
+      })
+    );
+  };
+  _s(Galleri, "biHb1CctvgDPdH23ovN5wyD01w0=");
+  _c6 = Galleri;
+  Galleri.propTypes = {
+    data: _propTypes["default"].array.isRequired
+  };
+  var _default = Galleri;
+  exports["default"] = _default;
+  var _c, _c2, _c3, _c4, _c5, _c6;
+  $RefreshReg$(_c, "Gallery");
+  $RefreshReg$(_c2, "Callout");
+  $RefreshReg$(_c3, "Hero");
+  $RefreshReg$(_c4, "Box");
+  $RefreshReg$(_c5, "Img");
+  $RefreshReg$(_c6, "Galleri");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

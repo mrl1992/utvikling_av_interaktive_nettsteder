@@ -1,0 +1,39 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.useDarkMode = void 0;
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _react = require("react");
+  var _s = $RefreshSig$();
+  var useDarkMode = function useDarkMode() {
+    _s();
+    var _useState = (0, _react.useState)('light'), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), theme = _useState2[0], setTheme = _useState2[1];
+    var _useState3 = (0, _react.useState)(false), _useState4 = (0, _slicedToArray2["default"])(_useState3, 2), mounted = _useState4[0], setMounted = _useState4[1];
+    var setMode = function setMode(mode) {
+      window.localStorage.setItem('theme', mode);
+      setTheme(mode);
+    };
+    var themeToggler = function themeToggler() {
+      theme === 'light' ? setMode('dark') : setMode('light');
+    };
+    (0, _react.useEffect)(function () {
+      var localTheme = window.localStorage.getItem('theme');
+      localTheme ? setTheme(localTheme) : setMode('light');
+      setMounted(true);
+    }, []);
+    return [theme, themeToggler, mounted];
+  };
+  exports.useDarkMode = useDarkMode;
+  _s(useDarkMode, "YCKE2uRMIshh/+RpyjK2SrKjidc=");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

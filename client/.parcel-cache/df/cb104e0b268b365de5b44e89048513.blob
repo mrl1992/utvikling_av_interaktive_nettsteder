@@ -1,0 +1,25 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _blockContentToReact = _interopRequireDefault(require("@sanity/block-content-to-react"));
+var _jsxRuntime = require("react/jsx-runtime");
+var SanityContent = function SanityContent(_ref) {
+  var data = _ref.data;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_blockContentToReact["default"], {
+      blocks: data || []
+    })
+  );
+};
+_c = SanityContent;
+SanityContent.propTypes = {
+  data: _propTypes["default"].array
+};
+var _default = SanityContent;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "SanityContent");

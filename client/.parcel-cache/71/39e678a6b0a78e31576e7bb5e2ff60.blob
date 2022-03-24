@@ -1,0 +1,122 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _framerMotion = require("framer-motion");
+var _imgUrl = _interopRequireDefault(require("../utils/imgUrl"));
+var _jsxRuntime = require("react/jsx-runtime");
+/*eslint-disable react/prop-types*/
+/*eslint-disable no-plusplus*/
+/*eslint-disable no-param-reassign*/
+/*eslint-disable no-shadow*/
+/*eslint-disable jsx-a11y/no-noninteractive-element-interactions*/
+var StyledModal = _styledComponents["default"].section.withConfig({
+  displayName: "ImgModal__StyledModal",
+  componentId: "ldt5jf-0"
+})(["display:flex;width:100%;height:100vh;justify-content:space-around;align-items:center;background-color:rgba(0,0,0,0.753);position:fixed;top:0;left:0;cursor:pointer;z-index:0;"]);
+_c = StyledModal;
+var StyledInnerModal = (0, _styledComponents["default"])(_framerMotion.motion.section).withConfig({
+  displayName: "ImgModal__StyledInnerModal",
+  componentId: "ldt5jf-1"
+})(["text-align:center;background-color:", ";height:auto;width:1100px;@media (max-width:", "){}@media (max-width:1300px){width:700px;}@media (max-width:", "){width:340px;}@media (max-width:", "){}& img{width:100%;}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.colors.black;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.breakpoints.desktop;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.breakpoints.tablet;
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.breakpoints.mobile;
+});
+_c2 = StyledInnerModal;
+var StyledAltText = _styledComponents["default"].p.withConfig({
+  displayName: "ImgModal__StyledAltText",
+  componentId: "ldt5jf-2"
+})(["color:white;font-size:1.2rem;"]);
+_c3 = StyledAltText;
+var StyledButton = _styledComponents["default"].button.withConfig({
+  displayName: "ImgModal__StyledButton",
+  componentId: "ldt5jf-3"
+})(["display:inline-block;padding:0.4em 2em;margin:0 auto 5px auto;border:0.14em solid #000000;box-sizing:border-box;text-decoration:none;font-size:1rem;color:#000000;text-align:center;transition:all 0.15s;cursor:pointer;:hover{background-color:", ";color:", ";}"], function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.colors.teal;
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.colors.white;
+});
+_c4 = StyledButton;
+var ImgModal = function ImgModal(_ref7) {
+  var _galleryData$activeIn, _galleryData$activeIn2, _galleryData$activeIn3;
+  var closeModal = _ref7.closeModal, modal = _ref7.modal, activeIndex = _ref7.activeIndex, setActiveIndex = _ref7.setActiveIndex, galleryData = _ref7.galleryData;
+  var nextImage = function nextImage(activeIndex) {
+    if (activeIndex >= 8) {
+      activeIndex = 0;
+    } else {
+      activeIndex++;
+    }
+    setActiveIndex(activeIndex);
+  };
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: modal ? /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledModal, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_framerMotion.AnimatePresence, {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledInnerModal, {
+            initial: {
+              scale: 0,
+              rotate: 0,
+              opacity: 0
+            },
+            animate: {
+              opacity: 1,
+              rotate: 0,
+              scale: 1
+            },
+            transition: {
+              duration: 0.5,
+              stiffness: 200,
+              damping: 20
+            },
+            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("img", {
+              src: (0, _imgUrl["default"])((_galleryData$activeIn = galleryData[activeIndex]) === null || _galleryData$activeIn === void 0 ? void 0 : _galleryData$activeIn.img.image.asset.url).width(1100).height(597).format('webp').url(),
+              alt: (_galleryData$activeIn2 = galleryData[activeIndex]) === null || _galleryData$activeIn2 === void 0 ? void 0 : _galleryData$activeIn2.img.alt,
+              onClick: function onClick() {
+                return nextImage(activeIndex);
+              },
+              onKeyDown: function onKeyDown() {
+                return nextImage(activeIndex);
+              }
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledAltText, {
+              children: (_galleryData$activeIn3 = galleryData[activeIndex]) === null || _galleryData$activeIn3 === void 0 ? void 0 : _galleryData$activeIn3.img.alt
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledButton, {
+              type: "button",
+              onClick: closeModal,
+              children: "Lukk"
+            })]
+          })
+        })
+      }) : null
+    })
+  );
+};
+_c5 = ImgModal;
+ImgModal.propTypes = {
+  closeModal: _propTypes["default"].func,
+  modal: _propTypes["default"].bool,
+  setActiveIndex: _propTypes["default"].func,
+  galleryData: _propTypes["default"].array
+};
+var _default = ImgModal;
+exports["default"] = _default;
+var _c, _c2, _c3, _c4, _c5;
+$RefreshReg$(_c, "StyledModal");
+$RefreshReg$(_c2, "StyledInnerModal");
+$RefreshReg$(_c3, "StyledAltText");
+$RefreshReg$(_c4, "StyledButton");
+$RefreshReg$(_c5, "ImgModal");

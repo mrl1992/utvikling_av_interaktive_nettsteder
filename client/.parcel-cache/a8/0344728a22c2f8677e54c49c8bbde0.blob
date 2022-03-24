@@ -1,0 +1,130 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _fa = require("react-icons/fa");
+var _jsxRuntime = require("react/jsx-runtime");
+var Searchbar = _styledComponents["default"].section.withConfig({
+  displayName: "Search__Searchbar",
+  componentId: "sc-1dunu6f-0"
+})([""]);
+_c = Searchbar;
+var Form = _styledComponents["default"].form.withConfig({
+  displayName: "Search__Form",
+  componentId: "sc-1dunu6f-1"
+})([""]);
+_c2 = Form;
+var Fieldset = _styledComponents["default"].fieldset.withConfig({
+  displayName: "Search__Fieldset",
+  componentId: "sc-1dunu6f-2"
+})(["border:none;padding:0px;"]);
+_c3 = Fieldset;
+var Label = _styledComponents["default"].label.withConfig({
+  displayName: "Search__Label",
+  componentId: "sc-1dunu6f-3"
+})(["display:flex;max-width:500px;margin:0 auto;"]);
+_c4 = Label;
+var Input = _styledComponents["default"].input.withConfig({
+  displayName: "Search__Input",
+  componentId: "sc-1dunu6f-4"
+})(["border:none;color:#fefefecc;width:100%;border-radius:0px 25px 25px 0px;background:linear-gradient( 220deg,", " 0%,", " 100% );&:focus{outline:none;background:linear-gradient( 220deg,", " 0%,", " 100% );}&:-webkit-autofill{box-shadow:0 0 0 1000px ", " inset !important;-webkit-box-shadow:0 0 0 1000px ", " inset !important;-webkit-text-fill-color:#fefefecc !important;}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.colors.grey;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.colors.black;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.colors.grey;
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.colors.black;
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.colors.black;
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.colors.black;
+});
+_c5 = Input;
+var Button = _styledComponents["default"].span.withConfig({
+  displayName: "Search__Button",
+  componentId: "sc-1dunu6f-5"
+})(["display:block;border:none;height:58px;width:58px;line-height:58px;text-indent:20px;border-radius:25px 0px 0px 25px;color:#fefefecc;background:", ";"], function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.colors.black;
+});
+_c6 = Button;
+var Search = function Search(_ref8) {
+  var search = _ref8.search, setSearch = _ref8.setSearch;
+  var handleSubmit = /*#__PURE__*/(function () {
+    var _ref9 = (0, _asyncToGenerator2["default"])(/*#__PURE__*/_regenerator["default"].mark(function _callee(event) {
+      return _regenerator["default"].wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              event.preventDefault();
+              _context.next = 3;
+              return setSearch(event.target.value);
+            case 3:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+    return function handleSubmit(_x) {
+      return _ref9.apply(this, arguments);
+    };
+  })();
+  var handleSubmitbutton = function handleSubmitbutton(event) {
+    event.preventDefault();
+  };
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Searchbar, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Form, {
+          onSubmit: handleSubmitbutton,
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Fieldset, {
+            children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(Label, {
+              htmlFor: "search",
+              children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Button, {
+                className: "button",
+                children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_fa.FaSearch, {
+                  "aria-label": "search"
+                })
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)(Input, {
+                type: "text",
+                id: "search",
+                value: search,
+                placeholder: "Søk etter navn på artikkel..",
+                onChange: handleSubmit
+              })]
+            })
+          })
+        })
+      })
+    })
+  );
+};
+_c7 = Search;
+Search.propTypes = {
+  search: _propTypes["default"].string,
+  setSearch: _propTypes["default"].func
+};
+var _default = Search;
+exports["default"] = _default;
+var _c, _c2, _c3, _c4, _c5, _c6, _c7;
+$RefreshReg$(_c, "Searchbar");
+$RefreshReg$(_c2, "Form");
+$RefreshReg$(_c3, "Fieldset");
+$RefreshReg$(_c4, "Label");
+$RefreshReg$(_c5, "Input");
+$RefreshReg$(_c6, "Button");
+$RefreshReg$(_c7, "Search");

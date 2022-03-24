@@ -1,0 +1,121 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _react = require("react");
+  var _Article = _interopRequireDefault(require("./Article"));
+  var _Articlescontainer = _interopRequireDefault(require("./Articlescontainer"));
+  var _Categorbar = _interopRequireDefault(require("./Categorbar"));
+  var _Searchbar = _interopRequireDefault(require("./Searchbar"));
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+    return keys;
+  }
+  function _objectSpread(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          (0, _defineProperty2["default"])(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+    return target;
+  }
+  var Articles = function Articles(_ref) {
+    _s();
+    var data = _ref.data, sortorder = _ref.sortorder, setSortorder = _ref.setSortorder;
+    var _useState = (0, _react.useState)(''), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), search = _useState2[0], setSearch = _useState2[1];
+    var _useState3 = (0, _react.useState)('gridview'), _useState4 = (0, _slicedToArray2["default"])(_useState3, 2), viewtype = _useState4[0], setViewtype = _useState4[1];
+    var _useState5 = (0, _react.useState)('listview'), _useState6 = (0, _slicedToArray2["default"])(_useState5, 2), change = _useState6[0], setChange = _useState6[1];
+    var toggleView = function toggleView() {
+      if (viewtype === 'gridview') {
+        setChange(viewtype);
+        setViewtype('listview');
+      }
+      if (viewtype === 'listview') {
+        setChange(viewtype);
+        setViewtype('gridview');
+      }
+    };
+    var toggleSort = function toggleSort() {
+      if (sortorder === 'desc') {
+        setSortorder('asc');
+      }
+      if (sortorder === 'asc') {
+        setSortorder('desc');
+      }
+    };
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Searchbar["default"], {
+          change: change,
+          search: search,
+          setSearch: setSearch,
+          setSortorder: setSortorder,
+          sortorder: sortorder,
+          toggleSort: toggleSort,
+          toggleView: toggleView,
+          viewtype: viewtype
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Categorbar["default"], {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Articlescontainer["default"], {
+          viewtype: viewtype,
+          children: data && data.// TODO: Fix this "error"
+          // eslint-disable-next-line array-callback-return
+          filter(function (article) {
+            if (article !== null && article !== void 0 && article.title.toLowerCase().includes(search.toLowerCase())) {
+              return article;
+            }
+          }).map(function (article) {
+            return (
+              /*#__PURE__*/(0, _jsxRuntime.jsx)(_Article["default"], _objectSpread(_objectSpread({
+                article: article
+              }, article), {}, {
+                viewtype: viewtype
+              }), article._id)
+            );
+          })
+        })]
+      })
+    );
+  };
+  _s(Articles, "5j3wC/U/+CLw6rN+9/Sjz/HycRk=");
+  _c = Articles;
+  Articles.propTypes = {
+    data: _propTypes["default"].array,
+    sortorder: _propTypes["default"].string,
+    setSortorder: _propTypes["default"].func.isRequired
+  };
+  var _default = Articles;
+  exports["default"] = _default;
+  var _c;
+  $RefreshReg$(_c, "Articles");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

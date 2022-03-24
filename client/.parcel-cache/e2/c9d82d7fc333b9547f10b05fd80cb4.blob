@@ -1,0 +1,106 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _styledComponents = require("styled-components");
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _react = _interopRequireDefault(require("react"));
+  var _Global = _interopRequireDefault(require("./Global"));
+  var _Toggle = _interopRequireDefault(require("../components/Toggle"));
+  var _UseDarkMode = require("../components/UseDarkMode");
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  var lightTheme = {
+    breakpoints: {
+      desktop: '2000px',
+      laptop: '1200px',
+      tablet: '992px',
+      mobile: '767px'
+    },
+    colors: {
+      black: '#222831',
+      grey: '#393e46',
+      teal: '#00adb5',
+      white: '#eeeeee',
+      yellow: '#fed049',
+      red: '#810034'
+    },
+    shift: {
+      html: 'white',
+      background: '#ffffff',
+      body: '#eeeeee',
+      text: '#222831',
+      toggleborder: '00adb5',
+      button: '222831'
+    }
+  };
+  var darkTheme = {
+    breakpoints: {
+      desktop: '2000px',
+      laptop: '1200px',
+      tablet: '992px',
+      mobile: '767px'
+    },
+    shift: {
+      html: 'black',
+      background: '#222831',
+      body: '#393e46',
+      text: '#eeeeee',
+      toggleborder: '00adb5',
+      button: '393e46',
+      bilde: 'url(https://cdn.tek.no/pro/no/current/assets/images/stars.svg)',
+      skygge: '0 0 60px 30px #222831'
+    },
+    colors: {
+      black: '#222831',
+      grey: '#393e46',
+      teal: '#00adb5',
+      white: '#eeeeee',
+      yellow: '#fed049',
+      red: '#810034'
+    }
+  };
+  var Theme = function Theme(_ref) {
+    _s();
+    var children = _ref.children;
+    var _useDarkMode = (0, _UseDarkMode.useDarkMode)(), _useDarkMode2 = (0, _slicedToArray2["default"])(_useDarkMode, 3), theme = _useDarkMode2[0], themeToggler = _useDarkMode2[1], mounted = _useDarkMode2[2];
+    var themeMode = theme === 'light' ? lightTheme : darkTheme;
+    if (!mounted) return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {})
+    );
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_styledComponents.ThemeProvider, {
+        theme: themeMode,
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Global["default"], {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Toggle["default"], {
+            theme: theme,
+            toggleTheme: themeToggler
+          }), children]
+        })
+      })
+    );
+  };
+  _s(Theme, "ec7YuLyKGCmhLbzGi8Nnq+CNe3s=", false, function () {
+    return [_UseDarkMode.useDarkMode];
+  });
+  _c = Theme;
+  Theme.propTypes = {
+    children: _propTypes["default"].object
+  };
+  var _default = Theme;
+  exports["default"] = _default;
+  var _c;
+  $RefreshReg$(_c, "Theme");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

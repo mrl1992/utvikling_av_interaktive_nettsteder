@@ -1,0 +1,58 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _propTypes = require("prop-types");
+var _framerMotion = require("framer-motion");
+var _jsxRuntime = require("react/jsx-runtime");
+var Button = (0, _styledComponents["default"])(_framerMotion.motion.button).withConfig({
+  displayName: "Toggle__Button",
+  componentId: "sc-15z42wr-0"
+})(["display:flex;margin:50px 0 10px auto;border:2px solid ", ";background:linear-gradient(to right,white,black);border-radius:5px;cursor:pointer;width:210px;"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.shift.text;
+});
+_c = Button;
+var StyledWhite = _styledComponents["default"].p.withConfig({
+  displayName: "Toggle__StyledWhite",
+  componentId: "sc-15z42wr-1"
+})(["margin:0 auto;border-radius:5px;padding:0.5rem 1rem;background:white;font-size:1rem;"]);
+_c2 = StyledWhite;
+var StyledBlack = _styledComponents["default"].p.withConfig({
+  displayName: "Toggle__StyledBlack",
+  componentId: "sc-15z42wr-2"
+})(["margin:auto;border-radius:5px;padding:0.5rem 1rem;background:black;font-size:1rem;color:white;"]);
+_c3 = StyledBlack;
+var Toggle = function Toggle(_ref2) {
+  var toggleTheme = _ref2.toggleTheme;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsxs)(Button, {
+      onClick: toggleTheme,
+      animate: {
+        backgroundColor: ["#FFFFFF", "#000000", "#FFFFFF"]
+      },
+      transition: {
+        duration: 5
+      },
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(StyledWhite, {
+        children: "Lys eller"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledBlack, {
+        children: "mørk?"
+      })]
+    })
+  );
+};
+_c4 = Toggle;
+Toggle.propTypes = {
+  toggleTheme: _propTypes.func.isRequired
+};
+var _default = Toggle;
+exports["default"] = _default;
+var _c, _c2, _c3, _c4;
+$RefreshReg$(_c, "Button");
+$RefreshReg$(_c2, "StyledWhite");
+$RefreshReg$(_c3, "StyledBlack");
+$RefreshReg$(_c4, "Toggle");

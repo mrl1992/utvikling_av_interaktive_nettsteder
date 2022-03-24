@@ -1,0 +1,96 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _propTypes = _interopRequireDefault(require("prop-types"));
+  var _react = require("react");
+  var _styledComponents = _interopRequireDefault(require("styled-components"));
+  var _imgUrl = _interopRequireDefault(require("../utils/imgUrl"));
+  var _Modal = _interopRequireDefault(require("./Modal"));
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  var StyledWrapper = _styledComponents["default"].section.withConfig({
+    displayName: "CourseItem__StyledWrapper",
+    componentId: "tpvwbk-0"
+  })(["color:white;background:", ";width:100%;margin:0 auto;padding-bottom:40px;"], function (_ref) {
+    var theme = _ref.theme;
+    return theme.colors.black;
+  });
+  _c = StyledWrapper;
+  var StyledImage = _styledComponents["default"].div.withConfig({
+    displayName: "CourseItem__StyledImage",
+    componentId: "tpvwbk-1"
+  })(["display:flex;justify-content:center;"]);
+  _c2 = StyledImage;
+  var TextContainer = _styledComponents["default"].section.withConfig({
+    displayName: "CourseItem__TextContainer",
+    componentId: "tpvwbk-2"
+  })(["width:100%;max-width:40rem;margin:0 auto;display:flex;flex-direction:column;justify-content:center;align-items:center;h1{margin:2rem auto;}h2{margin:2rem auto;}p{color:white;margin:30px auto;}button{display:flex;align-items:center;justify-content:center;padding:10px;background-color:#fed049;color:black;}"]);
+  _c3 = TextContainer;
+  var CourseItem = function CourseItem(_ref2) {
+    _s();
+    var data = _ref2.data;
+    var _useState = (0, _react.useState)(false), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), modal = _useState2[0], setModal = _useState2[1];
+    var openModal = function openModal() {
+      setModal(function (prev) {
+        return !prev;
+      });
+    };
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledWrapper, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Modal["default"], {
+            modal: modal,
+            setModal: setModal,
+            freeCourse: data === null || data === void 0 ? void 0 : data.free,
+            courseTitle: data === null || data === void 0 ? void 0 : data.title,
+            price: data === null || data === void 0 ? void 0 : data.price
+          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(TextContainer, {
+            children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("h1", {
+              children: ["Velkommen til kurs i ", data === null || data === void 0 ? void 0 : data.title]
+            }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("h2", {
+              children: ["Kurset har oppstart ", data === null || data === void 0 ? void 0 : data.startDate.split("-").reverse().join("-")]
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+              children: data === null || data === void 0 ? void 0 : data.description
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledImage, {
+              children: /*#__PURE__*/(0, _jsxRuntime.jsx)("img", {
+                src: (0, _imgUrl["default"])(data === null || data === void 0 ? void 0 : data.image).width(400).format("webp").url(),
+                alt: ("Bilde av logo til ").concat(data === null || data === void 0 ? void 0 : data.title)
+              })
+            }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
+              children: ["Adresse: ", data === null || data === void 0 ? void 0 : data.adress, ", ", data === null || data === void 0 ? void 0 : data.zipcode, " ", data === null || data === void 0 ? void 0 : data.location.toUpperCase()]
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+              type: "button",
+              onClick: openModal,
+              children: "Meld deg på"
+            })]
+          })]
+        })
+      })
+    );
+  };
+  _s(CourseItem, "FxRBWQPa/dKnwvdbY5qed8chvVc=");
+  _c4 = CourseItem;
+  CourseItem.propTypes = {
+    data: _propTypes["default"].array.isRequired
+  };
+  var _default = CourseItem;
+  exports["default"] = _default;
+  var _c, _c2, _c3, _c4;
+  $RefreshReg$(_c, "StyledWrapper");
+  $RefreshReg$(_c2, "StyledImage");
+  $RefreshReg$(_c3, "TextContainer");
+  $RefreshReg$(_c4, "CourseItem");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

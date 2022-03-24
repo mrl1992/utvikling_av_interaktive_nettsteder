@@ -1,0 +1,21 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _Item = _interopRequireDefault(require("../components/Item"));
+var _jsxRuntime = require("react/jsx-runtime");
+var Course = function Course() {
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_Item["default"], {
+      source: "course",
+      fields: "coursefields"
+    })
+  );
+};
+_c = Course;
+var _default = Course;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "Course");

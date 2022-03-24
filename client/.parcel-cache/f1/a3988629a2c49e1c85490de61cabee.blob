@@ -1,0 +1,41 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _reactRouterDom = require("react-router-dom");
+var _Styles = require("../styles/Styles");
+var _jsxRuntime = require("react/jsx-runtime");
+var Category = function Category(_ref) {
+  var categories = _ref.categories;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_Styles.Content, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.ContentDescription, {
+          children: "Kategori:"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.ContentList, {
+          children: (categories === null || categories === void 0 ? void 0 : categories.length) > 0 && categories.map(function (category) {
+            return (
+              /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.ContentItem, {
+                children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                  to: ("/kategori/").concat(category === null || category === void 0 ? void 0 : category.category.toLowerCase()),
+                  children: category === null || category === void 0 ? void 0 : category.category
+                })
+              }, category === null || category === void 0 ? void 0 : category._id)
+            );
+          })
+        })]
+      })
+    })
+  );
+};
+_c = Category;
+Category.propTypes = {
+  categories: _propTypes["default"].array
+};
+var _default = Category;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "Category");

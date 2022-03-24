@@ -1,0 +1,83 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _SanityContent = _interopRequireDefault(require("./SanityContent"));
+var _Author = _interopRequireDefault(require("./Author"));
+var _Published = _interopRequireDefault(require("./Published"));
+var _Category = _interopRequireDefault(require("./Category"));
+var _Title = _interopRequireDefault(require("./Title"));
+var _jsxRuntime = require("react/jsx-runtime");
+var Img = _styledComponents["default"].img.withConfig({
+  displayName: "ArticleItem__Img",
+  componentId: "sc-12b9zg3-0"
+})(["display:block;margin:40px auto;width:600px;height:796px;"]);
+_c = Img;
+var StyledClickbait = _styledComponents["default"].h3.withConfig({
+  displayName: "ArticleItem__StyledClickbait",
+  componentId: "sc-12b9zg3-1"
+})(["font-size:1.5rem;font-weight:400;margin:1rem 0;padding-bottom:1em;"]);
+_c2 = StyledClickbait;
+var Blockcontent = _styledComponents["default"].section.withConfig({
+  displayName: "ArticleItem__Blockcontent",
+  componentId: "sc-12b9zg3-2"
+})(["h1{font-size:2.5rem;font-weight:600;margin:1rem 0;}h2{font-size:2rem;font-weight:600;margin:1rem 0;}h3,h4{font-size:1.5rem;font-weight:500;margin:1rem 0;}p{margin:2rem 0;line-height:1.2;font-size:1rem;}"]);
+_c3 = Blockcontent;
+var Container = _styledComponents["default"].article.withConfig({
+  displayName: "ArticleItem__Container",
+  componentId: "sc-12b9zg3-3"
+})(["max-width:900px;margin:auto;position:relative;"]);
+_c4 = Container;
+var Meta = _styledComponents["default"].section.withConfig({
+  displayName: "ArticleItem__Meta",
+  componentId: "sc-12b9zg3-4"
+})(["display:flex;& > section{margin-right:10px;}"]);
+_c5 = Meta;
+var ArticleItem = function ArticleItem(_ref) {
+  var _data$img, _data$img$image, _data$img$image$asset, _data$img2;
+  var data = _ref.data;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(Container, {
+        className: ("").concat(!(data !== null && data !== void 0 && data.featured) ? '' : 'featuredarticle'),
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Title["default"], {
+          title: data === null || data === void 0 ? void 0 : data.title
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(Img, {
+          src: ("").concat(data === null || data === void 0 ? void 0 : (_data$img = data.img) === null || _data$img === void 0 ? void 0 : (_data$img$image = _data$img.image) === null || _data$img$image === void 0 ? void 0 : (_data$img$image$asset = _data$img$image.asset) === null || _data$img$image$asset === void 0 ? void 0 : _data$img$image$asset.url, "?h=800&w=600&fm=webp"),
+          alt: data === null || data === void 0 ? void 0 : (_data$img2 = data.img) === null || _data$img2 === void 0 ? void 0 : _data$img2.alt
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(Meta, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Published["default"], {
+            _createdAt: data === null || data === void 0 ? void 0 : data._createdAt
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Category["default"], {
+            categories: data === null || data === void 0 ? void 0 : data.categories
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Author["default"], {
+            authors: data === null || data === void 0 ? void 0 : data.authors
+          })]
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledClickbait, {
+          children: data === null || data === void 0 ? void 0 : data.clickbait
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(Blockcontent, {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_SanityContent["default"], {
+            data: data === null || data === void 0 ? void 0 : data.content
+          })
+        })]
+      })
+    })
+  );
+};
+_c6 = ArticleItem;
+ArticleItem.propTypes = {
+  data: _propTypes["default"].object
+};
+var _default = ArticleItem;
+exports["default"] = _default;
+var _c, _c2, _c3, _c4, _c5, _c6;
+$RefreshReg$(_c, "Img");
+$RefreshReg$(_c2, "StyledClickbait");
+$RefreshReg$(_c3, "Blockcontent");
+$RefreshReg$(_c4, "Container");
+$RefreshReg$(_c5, "Meta");
+$RefreshReg$(_c6, "ArticleItem");

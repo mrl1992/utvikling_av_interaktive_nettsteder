@@ -1,0 +1,182 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports["default"] = void 0;
+  var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+  var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _react = require("react");
+  var _reactRouterDom = require("react-router-dom");
+  var _styledComponents = _interopRequireDefault(require("styled-components"));
+  var _footerService = require("../utils/footerService");
+  var _GoogleMaps = _interopRequireDefault(require("./GoogleMaps"));
+  var _jsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  var StyledFooter = _styledComponents["default"].footer.withConfig({
+    displayName: "Footer__StyledFooter",
+    componentId: "tks5yn-0"
+  })(["background-color:", ";color:#fff;width:100%;position:absolute;bottom:0;height:150px;display:grid;grid-template-columns:1fr 1fr;gap:0px;"], function (_ref) {
+    var theme = _ref.theme;
+    return theme.colors.black;
+  });
+  _c = StyledFooter;
+  var StyledFooterWrapper = _styledComponents["default"].div.withConfig({
+    displayName: "Footer__StyledFooterWrapper",
+    componentId: "tks5yn-1"
+  })(["display:flex;flex-direction:row;justify-content:center;height:75px;@media (max-width:1350px){flex-direction:column;}"]);
+  _c2 = StyledFooterWrapper;
+  var StyledA = _styledComponents["default"].a.withConfig({
+    displayName: "Footer__StyledA",
+    componentId: "tks5yn-2"
+  })(["text-decoration:none;color:white;margin-left:1vw;margin-right:1vw;&:hover{text-decoration:underline;}"]);
+  _c3 = StyledA;
+  var StyledP = _styledComponents["default"].p.withConfig({
+    displayName: "Footer__StyledP",
+    componentId: "tks5yn-3"
+  })(["margin:auto;font-size:0.9rem;padding:0.2rem;"]);
+  _c4 = StyledP;
+  var StyledEL = _styledComponents["default"].p.withConfig({
+    displayName: "Footer__StyledEL",
+    componentId: "tks5yn-4"
+  })(["color:white;margin-left:50%;"]);
+  _c5 = StyledEL;
+  var StyledSuperSection = _styledComponents["default"].section.withConfig({
+    displayName: "Footer__StyledSuperSection",
+    componentId: "tks5yn-5"
+  })(["display:flex;margin:5px 0;height:150px;flex-direction:column;align-items:center;@media (max-width:1350px){flex-direction:row;}"]);
+  _c6 = StyledSuperSection;
+  var StyledSection = _styledComponents["default"].section.withConfig({
+    displayName: "Footer__StyledSection",
+    componentId: "tks5yn-6"
+  })(["width:100%;text-align:center;padding:0px;margin:0px;"]);
+  _c7 = StyledSection;
+  var Footer = function Footer() {
+    _s();
+    var _useState = (0, _react.useState)([]), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), data = _useState2[0], setData = _useState2[1];
+    var _useState3 = (0, _react.useState)(false), _useState4 = (0, _slicedToArray2["default"])(_useState3, 2), loading = _useState4[0], setLoading = _useState4[1];
+    var _useState5 = (0, _react.useState)(null), _useState6 = (0, _slicedToArray2["default"])(_useState5, 2), error = _useState6[0], setError = _useState6[1];
+    console.log(data);
+    (0, _react.useEffect)(function () {
+      var getData = /*#__PURE__*/(function () {
+        var _ref2 = (0, _asyncToGenerator2["default"])(/*#__PURE__*/_regenerator["default"].mark(function _callee() {
+          var footerInfo;
+          return _regenerator["default"].wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  setLoading(true);
+                  _context.prev = 1;
+                  _context.next = 4;
+                  return (0, _footerService.getFooterItems)("info");
+                case 4:
+                  footerInfo = _context.sent;
+                  setData(footerInfo);
+                  _context.next = 11;
+                  break;
+                case 8:
+                  _context.prev = 8;
+                  _context.t0 = _context["catch"](1);
+                  setError(_context.t0);
+                case 11:
+                  _context.prev = 11;
+                  setLoading(false);
+                  return _context.finish(11);
+                case 14:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, null, [[1, 8, 11, 14]]);
+        }));
+        return function getData() {
+          return _ref2.apply(this, arguments);
+        };
+      })();
+      getData();
+    }, []);
+    return (
+      /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledFooter, {
+          children: [error ? /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledEL, {
+            children: "Error - theres a bug in the system"
+          }) : null, loading ? /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledEL, {
+            children: "Loading - please wait"
+          }) : null, /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledSuperSection, {
+            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(StyledSection, {
+              children: (data === null || data === void 0 ? void 0 : data.length) > 0 && data.map(function (footer) {
+                var _footer$nav;
+                return (
+                  /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledFooterWrapper, {
+                    children: footer === null || footer === void 0 ? void 0 : (_footer$nav = footer.nav) === null || _footer$nav === void 0 ? void 0 : _footer$nav.map(function (navigation) {
+                      var _navigation$link;
+                      return (_navigation$link = navigation.link) === null || _navigation$link === void 0 ? void 0 : _navigation$link.map(function (link) {
+                        return (
+                          /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledP, {
+                            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledA, {
+                              href: link.href,
+                              children: link.name
+                            }, link._key)
+                          })
+                        );
+                      });
+                    })
+                  }, footer.zip)
+                );
+              })
+            }), /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledSection, {
+              children: (data === null || data === void 0 ? void 0 : data.length) > 0 && data.map(function (footer) {
+                return (
+                  /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledFooterWrapper, {
+                    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(StyledP, {
+                      children: footer.name
+                    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledP, {
+                      children: ["Adresse: ", footer.address, ", ", footer.zip, ", ", footer.postalcode]
+                    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledP, {
+                      children: ["Tipstelefon:", /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledA, {
+                        href: ("callto:").concat(footer.phone),
+                        children: footer.phone
+                      })]
+                    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledP, {
+                      children: ["Epost:", /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledA, {
+                        href: ("mailto:").concat(footer.mail),
+                        children: footer.mail
+                      })]
+                    })]
+                  }, footer.zip)
+                );
+              })
+            })]
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("section", {
+            children: (data === null || data === void 0 ? void 0 : data.length) > 0 && /*#__PURE__*/(0, _jsxRuntime.jsx)(_GoogleMaps["default"], {
+              data: data
+            })
+          })]
+        })
+      })
+    );
+  };
+  _s(Footer, "35twu9BzPwh/MvC4fPenfNnsuzs=");
+  _c8 = Footer;
+  var _default = Footer;
+  exports["default"] = _default;
+  var _c, _c2, _c3, _c4, _c5, _c6, _c7, _c8;
+  $RefreshReg$(_c, "StyledFooter");
+  $RefreshReg$(_c2, "StyledFooterWrapper");
+  $RefreshReg$(_c3, "StyledA");
+  $RefreshReg$(_c4, "StyledP");
+  $RefreshReg$(_c5, "StyledEL");
+  $RefreshReg$(_c6, "StyledSuperSection");
+  $RefreshReg$(_c7, "StyledSection");
+  $RefreshReg$(_c8, "Footer");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

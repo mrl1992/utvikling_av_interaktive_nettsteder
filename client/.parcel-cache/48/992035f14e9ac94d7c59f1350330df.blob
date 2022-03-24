@@ -1,0 +1,24 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _Page = _interopRequireDefault(require("../components/Page"));
+var _jsxRuntime = require("react/jsx-runtime");
+var Galleri = function Galleri() {
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_Page["default"], {
+      source: "gallery",
+      fields: "gallerifields",
+      maxreturn: "9",
+      customtitle: "Bildegalleri",
+      customlead: "Her er de siste bildene fra redaksjonen"
+    })
+  );
+};
+_c = Galleri;
+var _default = Galleri;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "Galleri");

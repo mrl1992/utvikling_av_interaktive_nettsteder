@@ -1,0 +1,56 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _fetchItem = require("../hooks/fetchItem");
+var _Styles = require("../styles/Styles");
+var _Loader = _interopRequireDefault(require("./Loader"));
+var _Error = _interopRequireDefault(require("./Error"));
+var _ArticleItem = _interopRequireDefault(require("./ArticleItem"));
+var _CategoryItem = _interopRequireDefault(require("./CategoryItem"));
+var _StaffmemberItem = _interopRequireDefault(require("./StaffmemberItem"));
+var _CourseItem = _interopRequireDefault(require("./CourseItem"));
+var _jsxRuntime = require("react/jsx-runtime");
+var _s = $RefreshSig$();
+var Item = function Item(_ref) {
+  _s();
+  var source = _ref.source, fields = _ref.fields, url = _ref.url;
+  var _useItem = (0, _fetchItem.useItem)(source, fields, url), status = _useItem.status, data = _useItem.data;
+  if (status === 'loading') return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_Loader["default"], {})
+  );
+  if (status === 'error') return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_Error["default"], {})
+  );
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_Styles.Container, {
+        children: [source === 'articlepage' && /*#__PURE__*/(0, _jsxRuntime.jsx)(_ArticleItem["default"], {
+          data: data
+        }), source === 'person' && /*#__PURE__*/(0, _jsxRuntime.jsx)(_StaffmemberItem["default"], {
+          data: data
+        }), source === 'category' && /*#__PURE__*/(0, _jsxRuntime.jsx)(_CategoryItem["default"], {
+          data: data
+        }), source === 'course' && /*#__PURE__*/(0, _jsxRuntime.jsx)(_CourseItem["default"], {
+          data: data
+        })]
+      })
+    })
+  );
+};
+_s(Item, "PK359T7FVOt80daoZjtkIgeokGc=", false, function () {
+  return [_fetchItem.useItem];
+});
+_c = Item;
+Item.propTypes = {
+  source: _propTypes["default"].string,
+  fields: _propTypes["default"].string,
+  url: _propTypes["default"].string
+};
+var _default = Item;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "Item");

@@ -1,0 +1,72 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Button = exports.ContentItem = exports.ContentList = exports.ContentDescription = exports.Content = exports.Clickbait = exports.Container = exports.Main = void 0;
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+// remember: normalize.css is imported in ./src/index.js
+var Main = _styledComponents["default"].main.withConfig({
+  displayName: "Styles__Main",
+  componentId: "bgm6t8-0"
+})(["padding-bottom:200px;"]);
+exports.Main = Main;
+var Container = _styledComponents["default"].section.withConfig({
+  displayName: "Styles__Container",
+  componentId: "bgm6t8-1"
+})(["width:95%;margin:30px auto;@media (max-width:", "){max-width:1600px;}@media (max-width:", "){max-width:1160px;}@media (max-width:", "){max-width:960px;}@media (max-width:", "){max-width:740px;}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.breakpoints.desktop;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.breakpoints.laptop;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.breakpoints.tablet;
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.breakpoints.mobile;
+});
+exports.Container = Container;
+var Clickbait = _styledComponents["default"].p.withConfig({
+  displayName: "Styles__Clickbait",
+  componentId: "bgm6t8-2"
+})(["font-weight:700;"]);
+exports.Clickbait = Clickbait;
+var Content = _styledComponents["default"].section.withConfig({
+  displayName: "Styles__Content",
+  componentId: "bgm6t8-3"
+})(["display:grid;grid-template-columns:65px auto;"]);
+exports.Content = Content;
+var ContentDescription = _styledComponents["default"].p.withConfig({
+  displayName: "Styles__ContentDescription",
+  componentId: "bgm6t8-4"
+})(["display:inline;margin-top:0px;"]);
+exports.ContentDescription = ContentDescription;
+var ContentList = _styledComponents["default"].ul.withConfig({
+  displayName: "Styles__ContentList",
+  componentId: "bgm6t8-5"
+})(["margin-top:0px;padding:0;list-style:none;"]);
+exports.ContentList = ContentList;
+var ContentItem = _styledComponents["default"].li.withConfig({
+  displayName: "Styles__ContentItem",
+  componentId: "bgm6t8-6"
+})(["margin-left:4px;&::after{content:\", \";}&:last-child{&::after{content:normal;}}"]);
+exports.ContentItem = ContentItem;
+var Button = _styledComponents["default"].button.withConfig({
+  displayName: "Styles__Button",
+  componentId: "bgm6t8-7"
+})(["display:inline-block;border-radius:5px;height:40px;width:auto;margin-bottom:10px;line-height:30px;text-align:center;margin-right:4px;color:", ";background:linear-gradient( 220deg,", " 0%,", " 100% );&:hover{cursor:pointer;color:", ";}&:focus{outline:none;}"], function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.colors.white;
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.colors.grey;
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.colors.black;
+}, function (_ref8) {
+  var theme = _ref8.theme;
+  return theme.colors.teal;
+});
+exports.Button = Button;

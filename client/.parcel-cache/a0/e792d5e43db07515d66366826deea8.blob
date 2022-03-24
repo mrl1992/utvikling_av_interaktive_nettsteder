@@ -1,0 +1,60 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _reactRouterDom = require("react-router-dom");
+var _jsxRuntime = require("react/jsx-runtime");
+var Categorybox = _styledComponents["default"].section.withConfig({
+  displayName: "CategoryList__Categorybox",
+  componentId: "sc-8c0qi3-0"
+})(["margin-bottom:40px;width:50%;& a{text-decoration:none;}"]);
+_c = Categorybox;
+var Categorytitle = _styledComponents["default"].h2.withConfig({
+  displayName: "CategoryList__Categorytitle",
+  componentId: "sc-8c0qi3-1"
+})(["border-bottom:1px solid ", ";"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.colors.black;
+});
+_c2 = Categorytitle;
+var CategoryList = function CategoryList(_ref2) {
+  var _data$articles, _data$articles2;
+  var data = _ref2.data;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(Categorybox, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(Categorytitle, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+            to: ("/kategori/").concat(data.category.toLowerCase()),
+            children: data.category
+          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("span", {
+            children: [" (", data === null || data === void 0 ? void 0 : (_data$articles = data.articles) === null || _data$articles === void 0 ? void 0 : _data$articles.length, ")"]
+          })]
+        }), data === null || data === void 0 ? void 0 : (_data$articles2 = data.articles) === null || _data$articles2 === void 0 ? void 0 : _data$articles2.map(function (article) {
+          return (
+            /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                to: ("/artikler/").concat(article.replace(/ /g, "-").toLowerCase()),
+                children: article
+              })
+            }, Math.random())
+          );
+        })]
+      })
+    })
+  );
+};
+_c3 = CategoryList;
+CategoryList.propTypes = {
+  data: _propTypes["default"].object
+};
+var _default = CategoryList;
+exports["default"] = _default;
+var _c, _c2, _c3;
+$RefreshReg$(_c, "Categorybox");
+$RefreshReg$(_c2, "Categorytitle");
+$RefreshReg$(_c3, "CategoryList");

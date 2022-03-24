@@ -1,0 +1,54 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _reactRouterDom = require("react-router-dom");
+var _Styles = require("../styles/Styles");
+var _jsxRuntime = require("react/jsx-runtime");
+var ContentDescriptionBox = (0, _styledComponents["default"])(_Styles.ContentDescription).withConfig({
+  displayName: "Author__ContentDescriptionBox",
+  componentId: "sc-1415r4t-0"
+})(["color:#222831;"]);
+_c = ContentDescriptionBox;
+var Linky = (0, _styledComponents["default"])(_reactRouterDom.Link).withConfig({
+  displayName: "Author__Linky",
+  componentId: "sc-1415r4t-1"
+})(["color:#222831;"]);
+_c2 = Linky;
+var Author = function Author(_ref) {
+  var authors = _ref.authors;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_Styles.Content, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(ContentDescriptionBox, {
+          children: "Forfatter:"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.ContentList, {
+          children: (authors === null || authors === void 0 ? void 0 : authors.length) > 0 && authors.map(function (author) {
+            return (
+              /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.ContentItem, {
+                children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Linky, {
+                  to: ("/om/").concat(author.slug),
+                  children: ("").concat(author.first, " ").concat(author.last)
+                })
+              }, author === null || author === void 0 ? void 0 : author._id)
+            );
+          })
+        })]
+      })
+    })
+  );
+};
+_c3 = Author;
+Author.propTypes = {
+  authors: _propTypes["default"].array
+};
+var _default = Author;
+exports["default"] = _default;
+var _c, _c2, _c3;
+$RefreshReg$(_c, "ContentDescriptionBox");
+$RefreshReg$(_c2, "Linky");
+$RefreshReg$(_c3, "Author");

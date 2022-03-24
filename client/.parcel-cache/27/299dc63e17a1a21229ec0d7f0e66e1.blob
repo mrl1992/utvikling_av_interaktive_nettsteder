@@ -1,0 +1,46 @@
+"use strict";
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.detectOutsideClick = void 0;
+  var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+  var _react = require("react");
+  var _s = $RefreshSig$();
+  /**
+  * Hook for handling closing when clicking outside of an element
+  * @param {React.node} el
+  * @param {boolean} initialState
+  */
+  var detectOutsideClick = function detectOutsideClick(el, initialState) {
+    _s();
+    var _useState = (0, _react.useState)(null), _useState2 = (0, _slicedToArray2["default"])(_useState, 2), isActive = _useState2[0], setIsActive = _useState2[1];
+    (0, _react.useEffect)(function () {
+      var onClick = function onClick(e) {
+        // If the active element exists and is clicked outside of
+        if (el.current !== null && !el.current.contains(e.target)) {
+          setIsActive(!isActive);
+        }
+      };
+      // If the item is active (ie open) then listen for clicks outside
+      if (isActive) {
+        window.addEventListener('click', onClick);
+      }
+      return function () {
+        window.removeEventListener('click', onClick);
+      };
+    }, [isActive, el]);
+    return [isActive, setIsActive];
+  };
+  exports.detectOutsideClick = detectOutsideClick;
+  _s(detectOutsideClick, "BaeJTBYdlNreyCZHJjpGEAUId/g=");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

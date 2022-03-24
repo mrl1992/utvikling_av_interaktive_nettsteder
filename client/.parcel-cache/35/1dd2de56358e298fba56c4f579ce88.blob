@@ -1,0 +1,95 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _reactRouterDom = require("react-router-dom");
+var _DefaultLayout = _interopRequireDefault(require("../layouts/DefaultLayout"));
+var _Navigation = _interopRequireDefault(require("../components/Navigation"));
+var _About = _interopRequireDefault(require("../pages/About"));
+var _Article = _interopRequireDefault(require("../pages/Article"));
+var _Articles = _interopRequireDefault(require("../pages/Articles"));
+var _Contact = _interopRequireDefault(require("../pages/Contact"));
+var _Galleri = _interopRequireDefault(require("../pages/Galleri"));
+var _Home = _interopRequireDefault(require("../pages/Home"));
+var _Staffmember = _interopRequireDefault(require("../pages/Staffmember"));
+var _Breadcrumbs = _interopRequireDefault(require("../components/Breadcrumbs"));
+var _NoMatch = _interopRequireDefault(require("../pages/NoMatch"));
+var _Categories = _interopRequireDefault(require("../pages/Categories"));
+var _Category = _interopRequireDefault(require("../pages/Category"));
+var _Courses = _interopRequireDefault(require("../pages/Courses"));
+var _Course = _interopRequireDefault(require("../pages/Course"));
+var _jsxRuntime = require("react/jsx-runtime");
+var Routes = function Routes() {
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsxs)(_reactRouterDom.BrowserRouter, {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Navigation["default"], {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Breadcrumbs["default"], {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_DefaultLayout["default"], {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_reactRouterDom.Switch, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Redirect, {
+            exact: true,
+            from: "/home",
+            to: "/"
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Redirect, {
+            exact: true,
+            from: "/hjem",
+            to: "/"
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Home["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/artikler",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Articles["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/artikler/:slug",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Article["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/galleri",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Galleri["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/kategori",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Categories["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/kategori/:slug",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Category["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/om",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_About["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/om/:slug",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Staffmember["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/kontakt",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Contact["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/kurs",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Courses["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/kurs/:slug",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Course["default"], {})
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Route, {
+            exact: true,
+            path: "/*",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_NoMatch["default"], {})
+          })]
+        })
+      })]
+    })
+  );
+};
+_c = Routes;
+var _default = Routes;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "Routes");

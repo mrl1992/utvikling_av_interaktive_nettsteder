@@ -1,0 +1,14 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _imageUrl = _interopRequireDefault(require("@sanity/image-url"));
+var _client = _interopRequireDefault(require("./client"));
+var builder = (0, _imageUrl["default"])(_client["default"]);
+function urlFor(source) {
+  return builder.image(source);
+}
+var _default = urlFor;
+exports["default"] = _default;

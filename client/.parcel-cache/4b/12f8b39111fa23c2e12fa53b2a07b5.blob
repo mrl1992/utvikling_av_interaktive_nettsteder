@@ -1,0 +1,29 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _Styles = require("../styles/Styles");
+var _Footer = _interopRequireDefault(require("../components/Footer"));
+var _jsxRuntime = require("react/jsx-runtime");
+var DefaultLayout = function DefaultLayout(_ref) {
+  var children = _ref.children;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.Main, {
+        id: "mymain",
+        children: children
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Footer["default"], {})]
+    })
+  );
+};
+_c = DefaultLayout;
+DefaultLayout.propTypes = {
+  children: _propTypes["default"].object.isRequired
+};
+var _default = DefaultLayout;
+exports["default"] = _default;
+var _c;
+$RefreshReg$(_c, "DefaultLayout");

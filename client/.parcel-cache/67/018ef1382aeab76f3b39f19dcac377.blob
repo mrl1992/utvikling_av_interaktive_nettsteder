@@ -1,0 +1,107 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _SanityContent = _interopRequireDefault(require("./SanityContent"));
+var _Author = _interopRequireDefault(require("./Author"));
+var _Published = _interopRequireDefault(require("./Published"));
+var _Category = _interopRequireDefault(require("./Category"));
+var _Title = _interopRequireDefault(require("./Title"));
+var _imgUrl = _interopRequireDefault(require("../utils/imgUrl"));
+var _jsxRuntime = require("react/jsx-runtime");
+var ImageBox = _styledComponents["default"].section.withConfig({
+  displayName: "ArticleItem__ImageBox",
+  componentId: "sc-12b9zg3-0"
+})(["position:relative;z-index:0;"]);
+_c = ImageBox;
+var Img = _styledComponents["default"].img.withConfig({
+  displayName: "ArticleItem__Img",
+  componentId: "sc-12b9zg3-1"
+})(["display:block;margin:5px auto;width:100%;"]);
+_c2 = Img;
+var StyledClickbait = _styledComponents["default"].h3.withConfig({
+  displayName: "ArticleItem__StyledClickbait",
+  componentId: "sc-12b9zg3-2"
+})(["font-size:1.5rem;font-weight:400;color:", ";margin:1rem 0;padding-bottom:1em;"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.shift.text;
+});
+_c3 = StyledClickbait;
+var Blockcontent = _styledComponents["default"].section.withConfig({
+  displayName: "ArticleItem__Blockcontent",
+  componentId: "sc-12b9zg3-3"
+})(["h1{font-size:2.5rem;font-weight:600;color:", ";margin:1rem 0;}h2{font-size:2rem;font-weight:600;color:", ";margin:1rem 0;}h3,h4{font-size:1.5rem;font-weight:500;color:", ";margin:1rem 0;}p{margin:2rem 0;line-height:1.2;color:", ";font-size:1rem;}"], function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.shift.text;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.shift.text;
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.shift.text;
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.shift.text;
+});
+_c4 = Blockcontent;
+var Container = _styledComponents["default"].article.withConfig({
+  displayName: "ArticleItem__Container",
+  componentId: "sc-12b9zg3-4"
+})(["max-width:900px;margin:auto;position:relative;"]);
+_c5 = Container;
+var Meta = _styledComponents["default"].section.withConfig({
+  displayName: "ArticleItem__Meta",
+  componentId: "sc-12b9zg3-5"
+})(["display:flex;& > section{margin-right:10px;}"]);
+_c6 = Meta;
+var ArticleItem = function ArticleItem(_ref6) {
+  var _data$img;
+  var data = _ref6.data;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(Container, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Title["default"], {
+          title: data === null || data === void 0 ? void 0 : data.title
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(ImageBox, {
+          className: ("").concat(!(data !== null && data !== void 0 && data.featured) ? '' : 'featuredarticleimage'),
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Img, {
+            src: (0, _imgUrl["default"])(data === null || data === void 0 ? void 0 : data.raw.image).width(1000).height(500).format('webp').url(),
+            alt: data === null || data === void 0 ? void 0 : (_data$img = data.img) === null || _data$img === void 0 ? void 0 : _data$img.alt
+          })
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(Meta, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Published["default"], {
+            _createdAt: data === null || data === void 0 ? void 0 : data._createdAt
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Category["default"], {
+            categories: data === null || data === void 0 ? void 0 : data.categories
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Author["default"], {
+            authors: data === null || data === void 0 ? void 0 : data.authors
+          })]
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(StyledClickbait, {
+          children: data === null || data === void 0 ? void 0 : data.clickbait
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(Blockcontent, {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_SanityContent["default"], {
+            data: data === null || data === void 0 ? void 0 : data.content
+          })
+        })]
+      })
+    })
+  );
+};
+_c7 = ArticleItem;
+ArticleItem.propTypes = {
+  data: _propTypes["default"].object
+};
+var _default = ArticleItem;
+exports["default"] = _default;
+var _c, _c2, _c3, _c4, _c5, _c6, _c7;
+$RefreshReg$(_c, "ImageBox");
+$RefreshReg$(_c2, "Img");
+$RefreshReg$(_c3, "StyledClickbait");
+$RefreshReg$(_c4, "Blockcontent");
+$RefreshReg$(_c5, "Container");
+$RefreshReg$(_c6, "Meta");
+$RefreshReg$(_c7, "ArticleItem");

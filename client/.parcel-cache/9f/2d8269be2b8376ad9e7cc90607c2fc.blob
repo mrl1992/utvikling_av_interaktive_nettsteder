@@ -1,0 +1,46 @@
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _reactRouterDom = require("react-router-dom");
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _fetchPage = require("../hooks/fetchPage");
+var _Styles = require("../styles/Styles");
+var _jsxRuntime = require("react/jsx-runtime");
+var _s = $RefreshSig$();
+var CategoryBox = _styledComponents["default"].section.withConfig({
+  displayName: "Categorbar__CategoryBox",
+  componentId: "sc-1l1a98z-0"
+})(["display:flex;align-items:center;justify-content:center;height:auto;margin:0 auto 40px auto;@media (max-width:800px){flex-wrap:wrap;}"]);
+_c = CategoryBox;
+var Categorybar = function Categorybar() {
+  _s();
+  var _usePage = (0, _fetchPage.usePage)('category', 'categoriesfields'), data = _usePage.data;
+  return (
+    /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(CategoryBox, {
+        children: data === null || data === void 0 ? void 0 : data.map(function (category) {
+          return (
+            /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+              to: ("/kategori/").concat(category.category.toLowerCase()),
+              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Styles.Button, {
+                children: category.category
+              })
+            }, category._id)
+          );
+        })
+      })
+    })
+  );
+};
+_s(Categorybar, "dRb1EiYPn8eauLwL/z7FEIpv/y8=", false, function () {
+  return [_fetchPage.usePage];
+});
+_c2 = Categorybar;
+var _default = Categorybar;
+exports["default"] = _default;
+var _c, _c2;
+$RefreshReg$(_c, "CategoryBox");
+$RefreshReg$(_c2, "Categorybar");
